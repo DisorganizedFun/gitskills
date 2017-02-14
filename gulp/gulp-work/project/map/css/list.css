@@ -1,0 +1,197 @@
+
+.main {
+    width: 100%;
+    height: 100%;
+}
+
+header,
+.location {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+}
+
+header {
+    width: 100%;
+    height: .7rem;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+}
+header > ul {
+    width: 100%;
+    height: .49rem;
+    margin-top: .105rem;
+}
+header ul li {
+    width: 33.3%;
+    height: 100%;
+    box-sizing: border-box;
+}
+header ul li:nth-child(1) {
+    border-right: 1px solid #ccc;
+}
+header ul li:nth-child(2) {
+    border-right: 1px solid #ccc;
+}
+header ul li span {
+    display: inline-block;
+    height: 100%;
+}
+.icon-xiala {
+    display: inline-block;
+    width: .36rem;
+    height: .49rem;
+    background: url(../images/xiala.png);
+    background-size: 100% 100%;
+}
+
+.location {
+    position: relative;
+    width: 100%;
+    height: .58rem;
+    background: #f0f0f0;
+    padding: 0 0 0 0.25rem;
+    border-bottom: 1px solid #ccc;
+}
+.icon-fresh {
+    width: .22rem;
+    height: .26rem;
+    position: absolute;
+    right: .39rem;
+    top: 50%;
+    margin-top: -0.13rem;
+}
+
+
+.scroll {
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+/********************/
+.content {
+    width: 100%;
+    background: #f0f0f0;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+}
+.content-ul {
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.store-one {
+    width: 100%;
+    min-height: 1.6rem;
+    padding: .1rem .25rem;
+    background: #fff;
+    margin-bottom: .12rem;
+}
+
+.store-img {
+    width: 1.5rem;
+    height: 1.5rem;
+    overflow: hidden;
+    border-radius: 3px;
+}
+.store-img>img {
+    width: 100%;
+    height: 100%;
+}
+
+.store-details {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-left: .3rem;
+}
+.store-name {
+    min-width: 2.93rem;
+    border-bottom: 1px solid #dfdfdf;
+    line-height: 0.4rem;
+    font-size:0.26rem;
+    color:#434343;
+}
+.store-sale {
+    font-size: .3rem;
+    color: #ff2121;
+    line-height: .4rem;
+}
+.store-loc,
+.store-distance {
+    color: #686868;
+    font-size: 0.18rem;
+}
+
+.store-img,
+.store-locTel {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+}
+
+.store-locTel {
+    width: .5rem;
+    height: 100%;
+    position: relative;
+    margin-left: 0.2rem;
+}
+.icon-loc,
+.icon-tel {
+    width: .5rem;
+    height: .5rem;
+    position: absolute;
+    left: 0;
+}
+.icon-loc {
+    top: .18rem;
+}
+.icon-tel {
+    bottom: .18rem;
+}
+
+.choose-banner {
+    width: 100%;
+}
+
+
+
+/*浮层*/
+.masking {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 100;
+}
+.alert-choose {
+    width: 6rem;
+    max-height: 70%;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 110;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+            transform: translate3d(-50%, -50%, 0);
+    background: #f0f0f0;
+    padding: .125rem 0 .2rem;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.alert-choose ul {
+    width: 100%;
+}
+.alert-choose li {
+    width: 1.7rem;
+    height: 0.6rem;
+    margin-left: .225rem;
+    margin-top: .2rem;
+    background: #fff;
+    color: #8b8b8b;
+}

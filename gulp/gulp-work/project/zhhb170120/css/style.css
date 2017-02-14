@@ -1,0 +1,420 @@
+
+.masking {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 888;
+}
+.masking-load {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.masking-short {
+    width: 100%;
+    padding: .7rem 0 .3rem;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    z-index: 777;
+}
+.pp1 {
+    color: #ff6517;
+    font-size: .3rem;
+    line-height: .3rem;
+    font-weight: 700;
+    border-bottom: 1px solid #ff6517;
+}
+.pp2 {
+    color: #e1ce4c;
+    font-size: .26rem;
+    text-align: center;
+    margin-top: .2rem;
+}
+.button-gameStart {
+    width: 1.28rem;
+    height: 1.28rem;
+    display: block;
+    margin-top: .2rem;
+}
+
+
+
+.bg {
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    position: relative;
+    overflow: hidden;
+}
+.page-home {
+    background-image: url(../images/bg-2.jpg);
+}
+.home-c {
+    width: 100%;
+    height: 8.65rem;
+    background-image: url(../images/home-1.png);
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+.buttons {
+    width: 100%;
+    position: absolute;
+    bottom: .85rem;
+    left: 0;
+    right: 0;
+}
+.button-rule,
+.button-record {
+    width: 1.64rem;
+    height: .67rem;
+}
+.button-game {
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+
+
+
+
+
+
+
+
+
+.page-game {
+    background-image: url(../images/bg.png);
+}
+.parents {
+    width: 2.4rem;
+    height: 2.93rem;
+    background-image: url(../images/parents.png);
+    background-size: 100% 100%;
+    position: absolute;
+    top: 1.32rem;
+    left: 50%;
+    margin-left: -1.3rem;
+}
+.hand {
+    width: .96rem;
+    height: .51rem;
+    position: absolute;
+    left: .2rem;
+    top: 1.55rem;
+    -webkit-transform-origin: 10% 80%;
+            transform-origin: 10% 80%;
+}
+
+.handRotate {
+    -webkit-animation: handRotate 0.2s ease-in-out infinite alternate;
+            animation: handRotate 0.2s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes handRotate {
+    0%{-webkit-transform: rotateZ(0);transform: rotateZ(0);}
+    100%{-webkit-transform: rotateZ(-110deg);transform: rotateZ(-110deg);}
+}
+
+.kid {
+    width: 1.15rem;
+    height: 3.01rem;
+    background-image: url(../images/child1.png);
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: .3rem;
+    left: 35%;
+}
+
+
+.time {
+    position: absolute;
+    right: .3rem;
+    bottom: .92rem;
+}
+.time-jindutiaobox {
+    width: 1.8rem;
+    height: .37rem;
+    background-image: url(../images/time-jindutiaobox.png);
+    background-size: 100% 100%;
+    position: relative;
+    overflow: hidden;
+}
+.time-box {
+    width: .67rem;
+    height: .67rem;
+    background-image: url(../images/time-box.png);
+    background-size: 100% 100%;
+    position: absolute;
+    left: -0.37rem;
+    top: 50%;
+    margin-top: -0.335rem;
+}
+.time-jindutiao {
+    width: 1.7rem;
+    height: .31rem;
+    position: absolute;
+    right: 100%;
+    top: .04rem;
+}
+.counter {
+    font-weight: 700;
+    font-size: .28rem;
+    color: #fff;
+}
+.word1 {
+    width: 4.29rem;
+    height: .29rem;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    z-index: 200;
+    -webkit-animation: danmu 5s linear 2s infinite;
+            animation: danmu 5s linear 2s infinite;
+}
+.word2 {
+    width: 3.31rem;
+    height: .3rem;
+    position: absolute;
+    left: 100%;
+    top: 54%;
+    z-index: 200;
+    -webkit-animation: danmu 6.5s linear 1.5s infinite;
+            animation: danmu 6.5s linear 1.5s infinite;
+}
+.word3 {
+    width: 2.4rem;
+    height: .21rem;
+    position: absolute;
+    left: 100%;
+    top: 58%;
+    z-index: 200;
+    -webkit-animation: danmu 8s linear 1s infinite;
+            animation: danmu 8s linear 1s infinite;
+}
+
+.redbag {
+    width: .72rem;
+    height: .91rem;
+    position: absolute;
+    top: 2.57rem;
+    z-index: 300;
+}
+
+@-webkit-keyframes danmu {
+    0%{-webkit-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);}
+    80%{-webkit-transform: translate3d(-400%, 0, 0);transform: translate3d(-400%, 0, 0);}
+    100%{-webkit-transform: translate3d(-400%, 0, 0);transform: translate3d(-400%, 0, 0);}
+}
+
+
+.bagDown {
+    -webkit-animation: bagDown 4s ease forwards;
+            animation: bagDown 4s ease forwards;
+}
+@-webkit-keyframes bagDown {
+    0%{-webkit-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);}
+    100%{-webkit-transform: translate3d(0, 10rem, 0);transform: translate3d(0, 10rem, 0);}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.page-gz {
+    width: 100%;
+    min-height: 100%;
+    padding: 1.44rem 0 0 0;
+    background-size: 100% 100%;
+    position: relative;
+    overflow: hidden;
+    background-image: url(../images/bg-3.jpg);
+
+}
+.pos-bottom {
+    width: 100%;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    /*min-height: 8.13rem;*/
+    /*position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;*/
+}
+.page-gzBottom {
+    width: 100%;
+    height: 2.4rem;
+    margin-top: .14rem;
+    background-image: url(../images/gz-bottom.png);
+    background-size: 100% 100%;
+}
+
+.hdsmTitle {
+    width: 1.76rem;
+    height: .49rem;
+}
+.gz-content {
+    width: 4.28rem;
+    max-height: 5.5rem;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: .22rem;
+    color: #343333;
+    margin-top: .3rem;
+    text-align: justify;
+}
+.button-close {
+    width: 1.13rem;
+    height: .58rem;
+    position: absolute;
+    bottom: 1.16rem;
+    left: 50%;
+    margin-left: -0.556rem;
+}
+
+
+
+
+
+
+
+
+.alert-redbag {
+    width: 3.35rem;
+    height: 4.88rem;
+    background-image: url(../images/price2.png);
+    background-size: 100% 100%;
+    position: relative;
+}
+.button-fa {
+    width: 2.57rem;
+    height: 2.57rem;
+    margin-top: .4rem;
+}
+.close1,
+.close2 {
+    width: .61rem;
+    height: .57rem;
+    position: absolute;
+    right: 0.05rem;
+    top: 0.05rem;
+}
+
+.alert-price,
+.alert-buy {
+    width: 4.91rem;
+    height: 7.31rem;
+    background-image: url(../images/price.png);
+    background-size: 100% 100%;
+    position: relative;
+}
+.close2 {
+    right: .6rem;
+    bottom: 100%;
+}
+
+.price-input {
+    width: 100%;
+    position: absolute;
+    bottom: 1.3rem;
+    margin-left: .06rem;
+}
+.input-tel {
+    width: 2.54rem;
+    height: .48rem;
+    background: #fff;
+    border-radius: 5px;
+    text-align: center;
+    font-size: .24rem;
+}
+.input-tel::-webkit-input-placeholder { /* WebKit browsers */
+    color: #afa9ac;
+}
+.button-lingqu {
+    width: 1.11rem;
+    height: .55rem;
+    margin-top: .29rem;
+}
+
+.price-word {
+    width: 100%;
+    margin-top: 1.7rem;
+    margin-left: .1rem;
+    font-size: .28rem;
+    color: #e34715;
+    font-weight: 700;
+}
+.p2 {
+    font-size: .24rem;
+    margin-top: .18rem;
+}
+.p3 {
+    color: #c74714;
+    font-size: .16rem;
+    font-weight: normal;
+}
+
+
+.button-buy {
+    width: 1.66rem;
+    height: .55rem;
+    display: block;
+    margin: 2.3rem auto 0;
+}
+
+
+
+
+
+.music {
+    width: 0.43rem;
+    height: 0.43rem;
+    position: absolute;
+    right: 0.3rem;
+    top: 0.2rem;
+    z-index: 800;
+}
+.music_on {
+    animation: musicR 2s linear infinite;
+    -webkit-animation: musicR 2s linear infinite;
+}
+@-webkit-keyframes musicR {
+    0%{-webkit-transform: rotate(0);transform: rotate(0);}
+    100%{-webkit-transform: rotate(1turn);transform: rotate(1turn);}
+}
+
+
+
+
+
+
+
+
+
+.none {
+    display: none;
+}

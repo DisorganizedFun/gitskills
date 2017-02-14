@@ -1,0 +1,14 @@
+$font-20: 20px;
+$red: #fefefe;
+$screen-width: 100%;
+
+body {
+    font-size: $font-20;
+    color: $red;
+}
+.main {
+    width: $screen-width;
+}
+.img {
+    width: $screen-width;
+}

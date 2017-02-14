@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,user-scalable=no" />
+        <meta content="telephone=no" name="format-detection">
+        <title></title>
+        <link rel="stylesheet" href="css/index.css?v=1.5">
+        <link rel="stylesheet" href="css/load.css">
+    </head>
+    <body>
+    <!-- 加载动画 -->
+    <div class="masking-load">
+        <div class="spinner">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <!-- 大转盘页 -->
+        <div class="main col-start-center">
+            <div class="dzp-bg">
+                <img src="images/pan.png" class="rotate" id="rotate">
+                <img src="images/rotate.png" class="start-price">
+            </div>
+            <p class="price-chance line-heights">抽奖机会:<span class="choujiang-num small-font">8</span>次</p>
+
+            <div class="buttons-2 row-all-center">
+                <img src="images/hdjs.png" class="hdgz">
+                <img src="images/wdjp.png" class="wdjp" style="margin-left:.2rem;">
+            </div>
+
+            <div class="price-box">
+                <p>奖品</p>
+                <ul>
+                    <li>
+                        <img src="images/icon-wawa.png" class="icon-wawa">
+                        <span>一等奖</span>
+                        <span style="margin-left:1.2rem;">50元善融商务电子券</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-wawa.png" class="icon-wawa">
+                        <span>二等奖</span>
+                        <span style="margin-left:1.2rem;">50务电子券</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-wawa.png" class="icon-wawa">
+                        <span>三等奖</span>
+                        <span style="margin-left:1.2rem;">50元善融商务电子券</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+<!-- xxx -->
+    <div class="alert-new none">hhh</div>
+
+<!-- 弹窗 -->
+    <div class="masking col-all-center">
+
+        <!-- 恭喜你 -->
+        <div class="alert-congraduation-1 col-all-center none">
+            <div class="title color-grey">
+                <img src="images/gxn.png" class="gxn">
+            </div>
+            <p class="dark-red">中奖了</p>
+            <p class="dark-red">华为mate9手机</p>
+            <img src="images/img-phone.png" class="img-phone">
+            <div class="input-box row-start-center">
+                <img src="images/icon-phone.png" class="icon-phone" style="margin-left:.3rem;">
+                <input type="tel" class="common-input" style="margin-left:.4rem;" placeholder="请输入您的手机号">
+            </div>
+            <p class="orange" style="margin: .2rem 0;">登记手机号以便您现场领取奖品。</p>
+            <img src="images/tj.png" class="tj">
+        </div>
+
+        <div class="alert-congraduation-2 no-shrink col-all-center">
+            <div class="title color-grey">
+                <img src="images/gxn.png" class="gxn">
+            </div>
+            <p class="dark-red">中奖了</p>
+            <p class="dark-red">飞利浦剃须刀</p>
+            <img src="images/img-phone.png" class="img-huzi">
+            <div class="input-box row-start-center">
+                <img src="images/icon-user.png" class="icon-user" style="margin-left:.3rem;">
+                <input type="text" class="common-input" style="margin-left:.4rem;" placeholder="请输入您的名字">
+            </div>
+            <div class="input-box row-start-center">
+                <img src="images/icon-phone.png" class="icon-phone" style="margin-left:.36rem;">
+                <input type="tel" class="common-input" style="margin-left:.4rem;" placeholder="请输入您的手机号">
+            </div>
+            <div class="input-box row-start-center">
+                <img src="images/icon-loc.png" class="icon-loc" style="margin-left:.35rem;">
+                <input type="text" class="common-input" style="margin-left:.4rem;" placeholder="请输入收货地址">
+            </div>
+            <p class="orange" style="margin: .2rem 0;">完整填写信息，以便将奖品邮寄给您。</p>
+            <img src="images/tj.png" class="tj">
+        </div>
+
+        <div class="alert-congraduation-3 col-all-center none">
+            <div class="title color-grey">
+                <img src="images/gxn.png" class="gxn">
+            </div>
+            <p class="dark-red">中奖了</p>
+            <p class="dark-red">50元善融商务电子券</p>
+            <img src="images/img-phone.png" class="img-card">
+            <div class="input-box row-start-center">
+                <img src="images/icon-phone.png" class="icon-phone" style="margin-left:.3rem;">
+                <input type="tel" class="common-input" style="margin-left:.4rem;" placeholder="请输入您的手机号">
+            </div>
+            <p class="orange" style="margin: .2rem 0; padding: 0 .5rem;">登记手机号后，我们会把使用方法通过短信发送给您。</p>
+            <img src="images/tj.png" class="tj">
+        </div>
+
+        <!-- 很遗憾 -->
+        <div class="alert-pity col-all-center none">
+            <div class="title title2">
+                <img src="images/hyh.png" class="hyh">
+            </div>
+            <p class="dark-red" style="text-align: center;">
+                呜呜~<br />
+                这次没有抽到奖品<br />
+                请再接再厉！<br />
+                下次好运属于你！
+            </p>
+            <p class="dark-red none" style="text-align: center;">
+                呜呜~<br />
+                抽奖机会已用完!<br />
+                感谢您的参与！
+            </p>
+            <p class="dark-red none" style="text-align: center;">
+                活动已结束！
+            </p>
+            <p class="dark-red none" style="text-align: center;">
+                活动未开始！
+            </p>
+
+            <img src="images/qd.png" class="qd">
+
+        </div>
+
+
+        <!-- 文字 -->
+        <div class="alert-html col-all-center none">
+            <p class="color-yellow">您的兑换机会</p>
+            <img src="images/qd.png" class="qd mt-short">
+        </div>
+
+        <!-- 活动规则 -->
+        <div class="alert-hdgz none">
+            <div class="title4">
+                <div class="close"></div>
+            </div>
+            <p style="font-size:.24rem;color:#940f0f;">活动规则</p>
+            <p class="hdnr" style="font-size:.2rem;color:#940f0f;">
+                1.2017年1月1日-2月6日期间，通过建行手机银行充值洪城一卡通联名卡、南昌职工卡和鹰潭职工龙卡，每成功充值一笔，即有一次大转盘抽奖机会，每人最多抽10次；<br/>
+                2.抽奖时间：2017年2月10日-2月12日；<br/>
+                3.活动奖品：<br/>
+                一等奖 10名 华为Mate9手机；<br/>
+                二等奖 200名 飞利浦剃须刀；<br/>
+                三等奖 2000名 50元善融商务电子券。<br/>
+                4.奖品领取须知：一等奖中奖客户凭中奖信息至建行南昌洪都支行（南昌市洪都北大道388号）现场领奖，二等奖中奖客户在中奖页面上填写姓名、手机号、地址，奖品随后邮寄
+                ；三等奖中奖客户根据短信内容进行在线充值、使用。具体为：下载“建行善融商城”手机客户端-我的善融-电子券管理-定向券，点击右上角充值，输入电子券编号及验证码，充值
+                成功后即可在指定商户中购物。
+            </p>
+        </div>
+
+        <!-- 我的奖品 -->
+        <div class="alert-wdjp alert-wdjp-1 none">
+            <div class="title4">
+                我的奖品
+                <div class="close"></div>
+            </div>
+            <p class="dark-red">奖品名称：</p>
+            <p class="dark-red" style="color:#000;">华为mate9</p>
+            <p class="dark-red">手机号：</p>
+            <p class="dark-red" style="color:#000;">13567894512</p>
+            <p class="dark-red">中奖时间：</p>
+            <p class="dark-red" style="color:#000;">2017-01-01 12:01:24</p>
+            <p class="orange" style="line-height:.4rem;margin-top:.2rem;">请凭此中奖信息到建设银行南昌洪都支行现场兑奖。</p>
+            <p class="orange" style="margin-top:.2rem;">地址：南昌市洪都北大道388号</p>
+        </div>
+
+        <div class="alert-wdjp alert-wdjp-2 none">
+            <div class="title4">
+                我的奖品
+                <div class="close"></div>
+            </div>
+            <p class="dark-red">奖品名称：</p>
+            <p class="dark-red" style="color:#000;">华为mate9</p>
+            <p class="dark-red">姓名：</p>
+            <p class="dark-red" style="color:#000;">程一勋</p>
+            <p class="dark-red">手机号：</p>
+            <p class="dark-red" style="color:#000;">13567894512</p>
+            <p class="dark-red">地址：</p>
+            <p class="dark-red" style="color:#000;">南昌市打开发了就爱上的数据库的福建</p>
+            <p class="dark-red">中奖时间：</p>
+            <p class="dark-red" style="color:#000;">2017-01-01 12:01:24</p>
+            <p class="orange" style="line-height:.4rem;margin-top:.4rem;">2月底前我们会将奖品邮寄给您。</p>
+
+        </div>
+
+        <div class="alert-wdjp alert-wdjp-3 none">
+            <div class="title4">
+                我的奖品
+                <div class="close"></div>
+            </div>
+
+            <p class="dark-red">奖品名称：</p>
+            <p class="dark-red" style="color:#000;">华为mate9</p>
+            <p class="dark-red">手机号：</p>
+            <p class="dark-red" style="color:#000;">13567894512</p>
+            <p class="dark-red">中奖时间：</p>
+            <p class="dark-red" style="color:#000;">2017-01-01 12:01:24</p>
+            <p class="dark-red">电子券编号：</p>
+            <p class="dark-red" style="color:#000;">0000444646464</p>
+            <p class="dark-red">验证码：</p>
+            <p class="dark-red" style="color:#000;">4578</p>
+            <p class="orange" style="line-height:.4rem;margin-top:.2rem;">
+            使用方法：<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登录“建行善融商城-我的商城-互动中心-我的电子券管理-我要充值。”在充值页面输入电子券编号和验证码后，即可领取。
+            </p>
+        </div>
+
+    </div>
+
+
+
+    </body>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/getWidth.js"></script>
+    <script src="js/awardRotate.js"></script>
+    <script src="js/loading-review.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+
+    var arr = [
+        "images/bg2.jpg",
+        "images/dzp.png",
+        "images/rotate.png",
+        "images/start-price.png",
+    ]
+    var obj = {
+        imgs : arr,
+        loaded : function(){
+            $('.masking-load').addClass('none');
+        }
+    }
+    loadingFun(obj);
+
+    $(function(){
+
+
+
+        // 弹不同内容
+        function alertHtml(your_message){
+            var qd = $('.alert-html').find('.qd');
+            $('.masking').removeClass('none');
+            $('.alert-html').removeClass('none');
+            $('.alert-html').find('.color-yellow').html(your_message);
+            qd.on('click',function(){
+                $('.masking').addClass('none');
+                $('.alert-html').addClass('none');
+            })
+        }
+
+
+
+        // 弹窗 class名作为参数
+        function alertWindow(eleAlert,eleClose){
+            var alert_ele = $(eleAlert);
+            var a;
+            a = eleClose ?  eleClose : false;
+            $('.masking').removeClass('none');
+            if(a){
+                var close_ele = $(eleClose);
+                alert_ele.removeClass('none');
+                close_ele.on('click',function(){
+                    alert_ele.addClass('none');
+                    $('.masking').addClass('none');
+                    $(this).off('click');
+                })
+            }else {
+                $('.masking').removeClass('none');
+                alert_ele.fadeIn(10,function(){$(this).css({'display':'-webkit-box','display':'-ms-flexbox','display':'flex'})})
+                .delay(1500)
+                .fadeOut(10,function(){$('.masking').addClass('none');});
+            }
+        }
+
+        function openWindow(eleAlert) {
+            eleAlert = $(eleAlert);
+            $('.masking').removeClass('none');
+            eleAlert.removeClass('none');
+        }
+
+        function closeWindow(eleAlert) {
+            eleAlert = $(eleAlert);
+            $('.masking').addClass('none');
+            eleAlert.addClass('none');
+        }
+
+// *************************************************************大转盘
+        var rotateTimeOut = function (){
+            $('#rotate').rotate({
+                angle:0,
+                animateTo:2160,
+                duration:8000,
+                callback:function (){
+                    // alert('网络超时，请检查您的网络设置！');
+                }
+            });
+        };
+        var bRotate = false;
+        var rotateFn = function (awards, angles, txt){
+            bRotate = !bRotate;
+            $('#rotate').stopRotate();
+            $('#rotate').rotate({
+                angle:0,
+                animateTo:angles+1800,
+                duration:8000,
+                callback:function (){
+                    bRotate = !bRotate;
+                    openWindow('.alert-congraduation-2');
+                }
+            })
+        };
+        $('.start-price').click(function (){
+            if(bRotate)return;
+            var item = 1;
+            switch (item) {
+                case 0:
+                    rotateFn(0, 60);
+                    break;
+                case 1:
+                    rotateFn(1, 120);
+                    break;
+                case 2:
+                    rotateFn(2, 180);
+                    break;
+                case 3:
+                    rotateFn(3, 240);
+                    break;
+                case 4:
+                    rotateFn(4, 300);
+                    break;
+                case 5:
+                    rotateFn(5, 360);
+                    break;
+            }
+
+        });
+
+// *************************************************************************************
+
+        // 我的奖品
+        $('.wdjp').on('click',function(){
+            alertWindow('.alert-wdjp-1','.close')
+        })
+
+        // 活动规则
+        $('.hdgz').on('click',function(){
+            alertWindow('.alert-hdgz', '.close')
+        })
+
+        $('.tj').click(function() {
+
+        })
+
+
+    })
+
+
+
+
+
+
+    </script>
+</html>

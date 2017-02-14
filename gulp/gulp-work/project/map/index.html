@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,user-scalable=no" />
+        <meta content="telephone=no" name="format-detection">
+        <title></title>
+        <link rel="stylesheet" href="css/index.css?v=1.6">
+        <link rel="stylesheet" href="css/useful.css">
+    </head>
+    <body>
+    <div class="main col-start">
+        <div class="head">
+            <img src="images/head.png" class="headImg">
+            <img src="images/head2.png" class="headImg2">
+        </div>
+        <div class="middle"></div>
+        <div class="bottom row-between-center">
+
+            <div class="input-box row-around-center">
+                <img src="images/xiala.png" class="xiala">
+                <select>
+                    <option value ="">区域</option>
+                    <option value ="">2</option>
+                    <option value="">上班族</option>
+                    <option value="">老板</option>
+                    <option value ="">公务员</option>
+                    <option value ="">自由职业自由职业</option>
+                    <option value="">退休</option>
+                    <option value="">其他</option>
+                </select>
+            </div>
+
+            <div class="input-box row-around-center">
+                <img src="images/xiala.png" class="xiala">
+                <select>
+                    <option value ="">类型</option>
+                    <option value ="">2</option>
+                    <option value="">上班族</option>
+                    <option value="">老板</option>
+                    <option value ="">公务员</option>
+                    <option value ="">自由职业</option>
+                    <option value="">退休</option>
+                    <option value="">其他</option>
+                </select>
+            </div>
+
+            <div class="input-box input-boxText row-around-center">
+                <input type="text" class="input-text" placeholder="特惠商户">
+            </div>
+
+            <div class="button-search row-around-center">搜索</div>
+
+        </div>
+    </div>
+
+    <div class="masking">
+        <div class="triggle">
+            <div class="button-guide">跳过教程</div>
+            <div class="button-guide">我知道了</div>
+        </div>
+    </div>
+
+
+    </body>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/getWidth.js"></script>
+    <script type="text/javascript">
+
+    $('.button-guide').on('click', function() {
+        $('.masking').addClass('none');
+    })
+
+    </script>
+</html>

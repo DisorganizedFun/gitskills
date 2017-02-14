@@ -1,0 +1,72 @@
+
+body {
+    background: #fff;
+}
+.main {
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    width: 100%;
+    height: .7rem;
+    background: #fff;
+}
+.button-back {
+    width: .83rem;
+    height: .5rem;
+    border-right: 1px solid #c0c0c0;
+}
+.icon-back {
+    width: .3rem;
+    height: .29rem;
+}
+.title {
+    text-align: center;
+    font-size: .26rem;
+}
+
+.banner {
+    width: 100%;
+}
+
+.details {
+    width: 100%;
+    background: #fff;
+    color: #22292c;
+}
+.details-title {
+    margin: .1rem 0 0 .28rem;
+    font-size: .28rem;
+    border-bottom: 1px solid #c0c0c0;
+    min-width: 3.75rem;
+    display: inline-block;
+    line-height: .6rem;
+}
+.details-item {
+    width: 100%;
+    min-height: .97rem;
+    border-bottom: 1px solid #c0c0c0;
+    padding: .1rem .9rem .1rem .28rem;
+    position: relative;
+}
+
+.details-rule {
+    width: 100%;
+    padding: .2rem .28rem .1rem .28rem;
+}
+.scroll {
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.icon-loc,
+.icon-tel {
+    width: .5rem;
+    height: .5rem;
+    position: absolute;
+    right: .27rem;
+    top: 50%;
+    margin-top: -.25rem;
+}

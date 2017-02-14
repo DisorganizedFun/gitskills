@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <meta content="telephone=no" name="format-detection">
+        <title></title>
+        <link rel="stylesheet" href="css/useful.css">
+        <link rel="stylesheet" href="css/style.css?v=1.2">
+        <link rel="stylesheet" href="css/load.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+    </head>
+    <body>
+        <!-- 加载动画 -->
+        <div class="masking-load">
+            <div class="spinner">
+              <div class="rect1"></div>
+              <div class="rect2"></div>
+              <div class="rect3"></div>
+              <div class="rect4"></div>
+              <div class="rect5"></div>
+            </div>
+        </div>
+
+        <audio id="musicPlay" src="music.mp3" loop="loop" autoplay="autoplay"></audio>
+        <audio id="bigBag" src="bigBag.mp3"></audio>
+        <img src="images/music_on.png" class="music music_on">
+
+        <audio id="clickSound1" src="click.mp3"></audio>
+        <audio id="clickSound2" src="click.mp3"></audio>
+        <audio id="clickSound3" src="click.mp3"></audio>
+        <audio id="clickSound4" src="click.mp3"></audio>
+
+
+
+
+        <div class="page-home bg">
+            <div class="home-c">
+                <div class="buttons row-around-center">
+                    <div class="button-record"></div>
+                    <img src="images/button-game.png" class="button-game">
+                    <img src="images/button-rule.png" class="button-rule">
+                </div>
+            </div>
+        </div>
+
+        <div class="page-game bg none">
+            <div class="parents">
+                <img src="images/hand1.png" class="hand">
+            </div>
+
+            <div class="kid">
+
+            </div>
+
+            <div class="time">
+                <div class="time-jindutiaobox">
+                    <img src="images/time-jindutiao.png" class="time-jindutiao">
+                </div>
+                <div class="time-box row-all-center">
+                    <p class="counter"><span id="counter">30</span>S</p>
+                </div>
+            </div>
+
+            <img src="images/word1.png" class="word1">
+            <img src="images/word2.png" class="word2">
+            <img src="images/word3.png" class="word3">
+
+            <!-- 开始游戏弹窗 -->
+            <div class="masking-short col-all-center">
+                <p class="pp1">游戏规则</p>
+                <p class="pp2">
+                    点击拜年按钮开始游戏<br />
+                    点击屏幕上弹出的红包可进行收集<br />
+                    30s内完成尽可能多的收集红包则可拆开大奖~
+                </p>
+                <img src="images/btn.png" class="button-gameStart">
+            </div>
+            <!-- <img src="images/redbag.png" class="redbag"> -->
+        </div>
+
+        <div class="page-gz row-start-center none">
+
+            <div class="pos-bottom">
+                <div class="gz-wrap col-start-center">
+                    <img src="images/hdsmtitle.png" class="hdsmTitle">
+                    <p class="gz-content">
+                        <span style="font-weight:700;">活动时间：</span><br />
+                        2017年1月23日—2017年1月26日。<br />
+                        <span style="font-weight:700;">活动对象：</span><br />
+                        工商银行、农业银行、建设银行、光大银行、兴业银行、中国银行（仅限北京地区）的借记卡持卡客户。<br />
+                        <span style="font-weight:700;">活动规则：</span><br />
+                        1.利率奖金数量有限，按照购买顺序先到先得；<br />
+                        2.点击“拜年”按钮开始游戏，不断点击屏幕上的红包进行收集，在30秒内尽可能多的收集红包，活动结束后所有红包汇总成一个大红包；<br />
+                        3.拆开终极大红包，抽取利率2至5倍大奖；<br />
+                        4.活动期间，中奖客户购买易商理财<span style="font-weight:700;">中银活期宝</span>产品，并填入营销代码“<span style="font-weight:700;">00002666</span>”，即可享受红包倍数利率的收益（在不赎回的情况下，<span style="font-weight:700;">倍数收益从申购交易第二日开始计算</span>，直到2017年2月2日的收益都可享受）；<br />
+                        5.客户从中奖后申购中银活期宝之日起至2月3日，<span style="font-weight:700;">该活动基金不得发生赎回交易</span>，如有赎回则会相应减掉其产生收益；<br />
+                        6.客户交易笔数不设上限；但总交易额不能超过100万，超出部分不再享受红包倍数利率；<br />
+                        7.活动期间的翻倍基准利率为指定基金2017年1月23日的年化利率。<br />
+                        <span style="font-weight:700;">奖品派发：</span><br />
+                        1.客户参加活动所得的基金收益，除基金的挂牌年化利率收益自动归入易商理财账户外，其余的倍数收益将于2月11日（元宵节）前，以微信红包的形式汇总发往客户参加活动的微信号中；<br />
+                        2.活动期间曾有多笔易商理财交易的，将获奖金额合并为一个微信红包进行派发；<br />
+                        3.发送红包后系统会配合短信提醒，请您及时拆领红包，否则24小时内未领取则红包自动退回系统之中，此种情况均视为自动放弃领取收益红包。
+                    </p>
+                </div>
+                <div class="page-gzBottom">
+                    <img src="images/button-close.png" class="button-close">
+                </div>
+            </div>
+        </div>
+
+        <!-- 弹出黑框内容 -->
+        <div class="alert-new none">请输入正确的手机号！</div>
+
+        <!-- 弹       窗 -->
+        <div class="masking row-all-center none">
+
+            <div class="alert-redbag col-all-center none">
+                <img src="images/button-fa.png" class="button-fa">
+                <p style="color:#face01;">恭喜发财</p>
+                <p style="color:#face01">红包拿来</p>
+                <p style="color:#face01;font-size:.3rem;">点击拆开红包</p>
+            </div>
+
+            <div class="alert-price none">
+                <!-- <img src="images/close1.png" class="close2"> -->
+
+                <div class="price-word col-start-center">
+                    <p class="p1">恭喜您！</p>
+                    <p class="p2">获得此笔订单利润翻N倍！</p>
+                    <p class="p3">（奖品将于春节后统一发放）</p>
+                </div>
+                <div class="price-input col-start-center">
+                    <input type="tel" class="input-tel" placeholder="银行预留手机号">
+                    <img src="images/button-lingqu.png" class="button-lingqu">
+                </div>
+
+            </div>
+
+            <div class="alert-buy none">
+                <div class="price-word col-start-center">
+                    <p class="p1">恭喜您！</p>
+                    <p class="p2">获得此笔订单利润翻N倍！</p>
+                    <p class="p3">（奖品将于春节后统一发放）</p>
+                </div>
+                <img src="images/button-get.png" class="button-buy">
+            </div>
+
+        </div>
+
+
+
+    </body>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/loading-review.js" charset="utf-8"></script>
+    <script src="js/getWidth.js"></script>
+    <script type="text/javascript">
+        (function(){
+        var agent = navigator.userAgent.toLowerCase();        //检测是否是ios
+        var iLastTouch = null;                                //缓存上一次tap的时间
+        if (agent.indexOf('iphone') >= 0 || agent.indexOf('ipad') >= 0){
+            document.body.addEventListener('touchend', function(event){
+                var iNow = new Date()
+                    .getTime();
+                iLastTouch = iLastTouch || iNow + 1 /** 第一次时将iLastTouch设为当前时间+1 */ ;
+                var delta = iNow - iLastTouch;
+                if (delta < 500 && delta > 0)
+                {
+                    event.preventDefault();
+                    return false;
+                }
+                iLastTouch = iNow;
+            }, false);
+        }
+
+        })();
+
+        var arr = [
+            "images/bg.png",
+            "images/child1.png",
+            "images/gz-bottom.png",
+            "images/parents.png",
+            "images/child2.png",
+            "images/child3.png",
+            "images/child4.png",
+            "images/redbag.png",
+            "images/redbag.png",
+            "images/bg-2.jpg",
+            "images/bg-3.jpg",
+        ]
+        var obj = {
+            imgs : arr,
+            loaded : function(){
+                $('.masking-load').addClass('none');
+            }
+        }
+        loadingFun(obj);
+
+        $('.bg').on('touchmove', function(e) {
+            e.preventDefault();
+        })
+
+
+
+
+
+
+
+
+// 弹窗 class名作为参数  S
+
+        function openWindow(eleAlert) {
+            eleAlert = $(eleAlert);
+            $('.masking').removeClass('none');
+            eleAlert.removeClass('none');
+        }
+
+        function closeWindow(eleAlert) {
+            eleAlert = $(eleAlert);
+            $('.masking').addClass('none');
+            eleAlert.addClass('none');
+        }
+
+        function alertWindow(eleAlert,eleClose) {
+            var alert_ele = $(eleAlert);
+            var a;
+            a = eleClose ?  eleClose : false;
+            $('.masking').removeClass('none');
+            if(a){
+                var close_ele = $(eleClose);
+                alert_ele.removeClass('none');
+                close_ele.on('click',function(){
+                    alert_ele.addClass('none');
+                    $('.masking').addClass('none');
+                    $(this).off('click');
+                })
+            }else {
+                $('.masking').removeClass('none');
+                alert_ele.fadeIn(10,function(){$(this).css({'display':'-webkit-box','display':'-ms-flexbox','display':'flex'})})
+                .delay(1500)
+                .fadeOut(10,function(){$('.masking').addClass('none');});
+            }
+        }
+
+// 弹窗 class名作为参数  E
+
+
+// 音乐控制  S
+        function audioAutoPlay(id){
+        var audio = document.getElementById(id);
+            audio.play();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+            }, false);
+        }
+        audioAutoPlay('musicPlay');
+        var bol2 = false;
+        $('.music').on('touchstart',function(){
+            bol2 = !bol2;
+            if(bol2){
+                $(this).attr('src','images/music.png');
+                $('#musicPlay')[0].pause();
+                $(this).removeClass('music_on');
+            }else {
+                $(this).attr('src','images/music_on.png');
+                $('#musicPlay')[0].play();
+                $(this).addClass('music_on');
+            }
+        })
+// 音乐控制  E
+
+
+
+// 点击  S
+
+
+        var kid_timer, n = 0;
+        var bag_timer;
+
+        $('.button-gameStart').click(function() {
+            $(this).parent().addClass('none');
+            $('.hand').addClass('handRotate');
+            $('.kid').addClass('kidAni');
+            time(3);
+            game();
+
+            kid_timer= setInterval(function() {
+                n = (n % 4);
+                n++;
+                $('.kid').css('background-image','url(images/child' + n +'.png)')
+            },200)
+
+        })
+
+        $('.button-rule').click(function() {
+            $('.page-home').toggleClass('none');
+            $('.page-gz').toggleClass('none');
+        })
+
+        $('.button-close').click(function() {
+            $('.page-gz').toggleClass('none');
+            $('.page-home').toggleClass('none');
+        })
+
+        $('.button-game').click(function() {
+            $('.page-home').toggleClass('none');
+            $('.page-game').toggleClass('none');
+        })
+
+
+// 点击  E
+
+
+
+
+
+        function time(counter) {
+
+            var jdt_right = 100 / counter;
+            var right = 100;
+
+            var timer = setInterval(function() {
+                counter--;
+                if(counter < 0) {
+
+                    // audioAutoPlay('musicPlay');
+                    $('.masking').removeClass('none');
+                    $('.alert-redbag').removeClass('none').addClass('animated bounceIn');
+                    $('.hand').removeClass('handRotate');
+                    clearInterval(timer);
+                    clearInterval(kid_timer);
+                    clearInterval(bag_timer);
+                    return false;
+                }
+
+                right -= jdt_right;
+
+                $('.time-jindutiao').animate({'right':right + '%'});
+
+                $('#counter').html(counter);
+            },1000)
+        }
+
+
+
+
+        function game() {
+
+                bag_timer = setInterval(function() {
+                var left = random(0.5,5.5);
+                var new_bag = $('<img src="images/redbag.png" class="redbag" />');
+
+                new_bag
+                .appendTo($('.page-game'))
+                .css('left',left + 'rem')
+                .addClass('bagDown');
+
+                setTimeout(function() {
+                    new_bag.remove();
+                },2000)
+
+            },300)
+
+            $('.redbag:hidden').remove();
+
+        }
+
+
+        function random(min, max) {
+            return (Math.random() * (max - min) + min);
+        }
+
+
+        var x = 0;
+        $(document).on('touchstart', '.redbag', function() {
+            x = x % 4;
+            x++;
+            $('#clickSound' + x)[0].play();
+            $(this).addClass('none');
+        })
+
+        $('.button-fa').on('click', function() {
+            $('.alert-redbag').addClass('none');
+            $('.alert-price').removeClass('none');
+            $('#bigBag')[0].play();
+        })
+
+        $('.button-lingqu').click(function() {
+
+        })
+
+    </script>
+</html>
