@@ -1,3 +1,6 @@
 1.learn branch
-
-oh this is crash
+<<<<<<< HEAD
+2.Solve crashes
+=======
+2.solve crach
+>>>>>>> featurel
