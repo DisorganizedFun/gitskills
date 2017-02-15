@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+    </body>
+    <script type="text/javascript">
+
+// Array.from
+        let arrayLike = {
+            '0': '3',
+            '1': '4',
+            '2': '5',
+            length: 3
+        }
+
+        // ES5
+        var arr1 = [].slice.call(arrayLike);
+        // console.log(arr1);
+
+        // ES6
+        var arr2 = Array.from(arrayLike);
+        // console.log(arr2);
+
+        // NodeList对象
+        let ps = document.querySelectorAll('p');
+        Array.from(ps).forEach(function (p) {
+
+        });
+
+        // arguments对象
+        function foo() {
+          var args = Array.from(arguments);
+          // ...
+        }
+
+        // 字符串
+        Array.from('hello') //['h', 'e', 'l', 'l', 'o']
+
+        // 其他
+        Array.from({ length: 3 });
+
+        // Array.from还可以接受第二个参数，作用类似于数组的map方法，用来对每个元素进行处理，将处理后的值放入返回的数组。
+        var arr3 = Array.from(arrayLike, x => x * x)
+                //等同于
+        var arr3 = Array.from(arrayLike).map(x => x * x);
+
+        // 将数组中布尔值为false的成员转为0；
+        var arr4 = Array.from([1, , 2, , 3], n => n || 1);
+
+
+        // console.log(typeof NaN); //number
+        // console.log(null instanceof Object);
+
+        var arr5 = Array.from({ length: 5 }, a => 'jack')
+
+
+
+// Array.of      方法用于将一组值，转换为数组。
+        Array.of() // []
+        Array.of(undefined) // [undefined]
+        Array.of(1) // [1]
+        Array.of(1, 2) // [1, 2]
+            //等同于
+        function ArrayOf() {
+            return [].slice.call(arguments);
+        }
+
+// find() 和 findIndex() 用于找出第一个符合条件的数组成员
+        [1, 5, 12, 132].find(function(value) {
+            return value > 100;
+        });
+
+// 数组实例的 fill()
+        ['2', '4', '5'].fill(5);  //[5, 5, 5]
+        ['a', 'b', 'c'].fill(7, 1, 2) //['a', '7']
+
+        Array(6).fill().map((_,i) => i+1); //[1,2,3,4,5,6]
+
+// 数组实例 entries(), keys(), values()
+
+// 数组实例的 includes()
+        // 返回一个布尔值 表示某个数组是否包含给定的值
+        [1,2,3].includes(2); //true
+        [1,2,3].includes(3,-1); //true
+        [1,2,3].includes(2,-6); //true
+        //在此之前有inddexOf方法
+        //indexOf方法有两个缺点，
+        //一是不够语义化，它的含义是找到参数值的第一个出现位置，所以要去比较是否不等于-1，表达起来不够直观。
+        //二是，它内部使用严格相当运算符（===）进行判断，这会导致对NaN的误判。
+        [NaN].indexOf(NaN); //-1
+        [NaN].includes(NaN); //true;
+
+
+// 数组的空位
+        // 传入顺序有差
+        // forEach(function(value, index, array)
+        // $.each([], function(index, value, array)
+        // [].map(function(value, index, array)
+
+
+        // ES5对空位的处理，已经很不一致了，大多数情况下会忽略空位。
+        // forEach(), filter(), every() 和some()都会跳过空位。
+        // map()会跳过空位，但会保留这个值
+        // join()和toString()会将空位视为undefined，而undefined和null会被处理成空字符串。
+
+        // ES6则是明确将空位转为undefined。
+
+
+        function st(x,y) {
+            if(typeof y === 'undefined')y = 'nmd';
+            console.log(x,y);
+        }
+        st(1,'');
+    </script>
+</html>

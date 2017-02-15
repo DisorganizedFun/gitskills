@@ -1,0 +1,148 @@
+/*****笔记******/
+var u = navigator.userAgent;
+var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端 
+var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
+
+typeof无法判断Function和Array,typeof在没有let的情况下使用十分安全，即使是一个未定义的变量也不会报错  Array.isArray(object)可以用来判断数组 返回布尔值
+
+arr.push(arr2)组成一个二维数组
+
+indexOf 数组字符串都能用
+
+false == 0 或 “” == 0 返回的结果是true
+
+立即执行函数里面 要想外部访问到需要在外部先定义全局变量，并且return。 若return 内部访问不到
+
+for(var i=0; ab.push(i+=2)<max;); 快速生成一个等差、等比数组；push内部能接收算式也能接函数 max后面的分号必须加；
+
+trim()只能去除首尾的空格， /\s+/g 用正则匹配所有的空格，然后用replace替换。
+
+清空数组 用arr=[] 或 arr.length = 0;
+
+0.1+0.2 === 0.3 //false  用tofixed指定小数位数
+
+时钟补0 slice（-2）
+
+safari浏览器下 若用事件委托 click将失效 需要给body元素添加cursor:point; 或者改为touchstart 移动端苹果手机
+
+Array.from() 可以将类数组或字符串转换为数组；
+
+iScroll必须通过window.onload中实例化，或者在事件中实例化。否则会有问题。
+
+andriod机子input在focus状态内容会被压缩 （带有绝对定位的元素宽高保持不变），方法：判断是否是安卓机 获取屏幕高度，动态设置最外围包裹元素的高度即可
+
+自定义checkbox/radio样式 可以使用checked伪类来实现 input始终隐藏； hover无法通过子级改变父级
+
+table布局：1、父级display:table;border-spacing(每个子级之间的间距) 子级：diaplay:table-cell;width:等宽的话随意指定一个宽度即可，不指定宽度，将根据内容自适应；子级
+
+变量不能删除，属性可以删除，例如： a = 10 可以看成是window.a = 10 可以认为是window的一个属性，可以删除.
+
+transition:left 1s ease 0s;  如果0后面不加s 无法生效；
+
+手机横竖屏时 优先监听resize,orientationchange有时候会发生错误
+
+0.5px有些手机无法识别
+
+省略号（1）：display: -webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
+省略号（2）：white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+
+
+自定义checkbox/radio按钮的时候 按钮的标签必要放在input的后面；否则会失效  radio必须有一个共同的name
+
+安卓机下若字体为粗体 会导致emoji表情无法显示；
+
+（var snack = 'Meow Mix';
+
+function getFood(food) {
+    if (food) {
+        var snack = 'Friskies';
+        return snack;
+    }
+    return snack;
+}
+
+getFood(false); // undefined 作用域的一个坑 经常错）
+
+-webkit-overflow-scrolling:touch; 让滚动具有惯性；
+
+去除滚动条： ::-webkit-scrollbar{
+	display: none;
+}
+
+倒影 .daoying {
+    -webkit-box-reflect: below 0px
+    -webkit-gradient(linear,
+    left top,left bottom,
+    from(rgba(0,0,0,0)),
+    to(rgba(255,255,255,0.5)));
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #dbd6d4;
+}
+
+-webkit-tap-highlight-color:rgba(255,0,0,0);点击屏幕不会闪
+
+word-break:break-all 和 word-wrap:break-word都是让文字自动换行 区别在于单词是否会显示在同一行
+
+display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+第几行后面跟省略号 该元素不能加上下padding和高度；
+
+letter-spacing添加字母之间的空白，而word-spacing添加每个单词之间的空白。请大家注意，word-spacing对中文无效。
+
+数组里面求最大值的方法 Math.max.apply(null[Math],arr2);
+
+Array(n).fill().map(); 快速创建一个数组        例子：Array(n).fill().map((_,i) => i+1); [1,2,3,4,5]
+
+.outer:after {clear:both;content:'.';display:block;width: 0;height: 0;visibility:hidden;}  清楚浮动
+div:after, div:before{display: table; content:''}   div:after {clear: both;}
+
+通常用的两个模块方法：
+1、commonJs  
+function myModule(){
+    this.hello = function(){
+	return 'hello';
+    }
+    
+    this.goodbye = function(){
+        return 'goodbye!';
+    }
+}
+
+module.exports = myModule;
+
+2、
+    
+
+
+
+
+
+
+防止ios点击两次页面向上移动的bug
+(function(){
+        var agent = navigator.userAgent.toLowerCase();        //检测是否是ios
+        var iLastTouch = null;                                //缓存上一次tap的时间
+        if (agent.indexOf('iphone') >= 0 || agent.indexOf('ipad') >= 0){
+            document.body.addEventListener('touchend', function(event){
+                var iNow = new Date()
+                    .getTime();
+                iLastTouch = iLastTouch || iNow + 1 /** 第一次时将iLastTouch设为当前时间+1 */ ;
+                var delta = iNow - iLastTouch;
+                if (delta < 500 && delta > 0)
+                {
+                    event.preventDefault();
+                    return false;
+                }
+                iLastTouch = iNow;
+            }, false);
+        }
+
+        })();
+
+
+
+typeof 和 instanceof 这两个功能就是完全不一样的运算符。typeof 是为了检查数据类型，instanceof是为了看一个变量是否是某个对象的实例。
