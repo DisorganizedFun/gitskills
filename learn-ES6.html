@@ -16,7 +16,7 @@
             '2': '5',
             length: 3
         }
-
+        let arr8 = [1,3,4,5]
         // ES5
         var arr1 = [].slice.call(arrayLike);
         // console.log(arr1);
@@ -24,6 +24,9 @@
         // ES6
         var arr2 = Array.from(arrayLike);
         // console.log(arr2);
+        // 用扩展运算符 此时行不通
+        //console.log(...arrayLike); //报错
+
 
         // NodeList对象
         let ps = document.querySelectorAll('p');
@@ -111,9 +114,249 @@
 
 
         function st(x,y) {
-            if(typeof y === 'undefined')y = 'nmd';
-            console.log(x,y);
+            if(typeof y === 'undefined')y = 'nmd'; //只是y = y || 'nmd',当传入空字符串时会被解读为默认值
+            // console.log(x,y);
         }
         st(1,'');
+
+// 参数默认值的位置
+        // 有默认值的参数都不是尾参数。这时，无法只省略该参数，而不省略它后面的参数，除非显式输入undefined。
+        function f(x = 1, y) {
+            return [x, y];
+        }
+        f(); //[1, undefined]
+        f(1); //[1, undefined]
+        // f(, 1) //报错
+        f(undefined, 1) //[1, 1]
+
+// 函数的length属性
+        // 函数的length属性，将返回设置了默认值的参数 之前的参数个数；
+
+
+// 一个例子 如果省略某个参数 就会报错
+        // function throwIfMissing() {
+        //   throw new Error('Missing parameter')
+        // }
+        //
+        // function foo(mustBeProvided = throwIfMissing()) {
+        //   return mustBeProvided;
+        // }
+        // foo();
+
+
+// rest 参数   rest参数只能是最后一个参数， 函数的length属性，不包括rest参数
+        function add(...abc) {
+            let a = 0;
+            for( var b of abc) {
+                a += b;
+            }
+            return a;
+        }
+        var x = add(1,4,9);
+
+
+        function sortNumbers() {
+            return Array.prototype.slice.call(arguments).sort();
+        }
+        const sortNumbers2 = ( ...numbers ) => numbers.sort();
+
+
+        function push(arr, ...argu) {
+            argu.forEach(function(one) {
+                arr.push(one);
+            })
+            return arr;
+        }
+
+
+// 扩展运算符  三个点 ... 将一个数组转为用逗号分隔的参数序列
+        //ES5
+        Math.max.apply(null, [12,54,32]);
+        [1,2].concat([3,5]);
+        //ES6
+        Math.max(...[14,23,12]);
+        console.log([1,2,...[3,5]]);
+        //等同于
+        Math.max(12,34,54);
+
+
+        // 将字符串转换为数组   [...'hello']  ->  ['h','e','l','l','o']
+        // 此方法有个重要好处 那就是能够正确识别32的Unicode字符。
+        console.log([...'hello']);
+        // Array.from()     更高级
+
+
+// 箭头函数
+
+
+//尾递归
+        function factorial(n) {
+            if (n === 1) return 1;
+            return n * factorial(n - 1);
+        }
+        // 常规的递归耗内存
+
+        // 尾递归节省内存 效率高
+        function factorial(n, total) {
+            if(n === 1) return total;
+            return factorial(n-1, n * total);
+        }
+        factorial(5, 1)
+
+        function factorial(n, total = 1) {
+            if(n === 1) return total;
+            return factorial(n - 1, n * total);
+        }
+        factorial(5);
+
+        //蹦床函数  start
+        function sum(x, y) {
+            if(y > 0) {
+                return sum.bind(null, x+1, y-1)
+            }else {
+                return x;
+            }
+        }
+
+        function trampoline(f) {
+            while(f && f instanceof Function) {
+                f = f();
+            }
+            return f;
+        }
+        console.log(trampoline(sum(1, 100)));
+        //蹦床函数  end
+
+
+// 对象的扩展
+        //1.简写  简写的属性名总是字符串
+        var birth = '2000/01/02';
+        var Person = {
+            name: '张三',
+
+            //等同于 birth: birth;
+            birth,
+
+            //等同于hello: function() {...};
+            hello() { console.log(this);;console.log('我的', this.name); }
+        };
+
+
+        //深度拷贝
+        let newArr1 = [1,3,5,7];
+        let sb = '123';
+        let sbo = {1: '2', 2: '4'}
+
+        function deepCopy(obj) {
+            if(typeof obj !== 'object'){ return obj; }
+            var a = [], o = {};
+            if(obj instanceof Array){
+                // obj.forEach(function(value, index, arr) {
+                //     a.push(value);
+                // })
+                a = obj.slice();
+                return a;
+            }
+            if(obj instanceof Object){
+                for(var i in obj) {
+                    o[i] = obj[i];
+                }
+                return o;
+            }
+        }
+        var deepArr = deepCopy(newArr1);
+
+// symbol
+        // 它表示独一无二的值 他是js的第七种数据类型 它不是对象不能对其添加属性 基本上他是一种类似于字符串的数据类型
+        var s1 = Symbol('foo');
+        var si = Symbol('bar');
+        // 参数表示对Symbol实例的描述 即使相同参数的Symbol值也不相等
+        // Symbol可以显示转为字符串  也可以转换为布尔值。 但不能转为数值
+        var sym = Symbol();
+        Boolean(sym); //true
+        !sym // false
+        Number(sym) //TypeError
+        sym + 2 //TypeError
+
+        //2. 作为属性名的Symbol
+        var mySymbol = Symobol();
+        // 第一种
+        var a = {};
+        a[mySymbol] = 'hello!';
+        // 第二种
+        var a = {
+            [mySymbol]: 'Hello!'
+        }
+        // 第三种
+        var a = {};
+        Object.defineProperty(a, mySymbol, {value: 'Hello!'});
+
+        // ******使用Symbol值作为对象属性时，Symbol值必须放在方括号内；
+        // 作为属性名时，该属性还是公开属性，不是私有属性
+
+        //作为定义一组常量， 保证这组常量的值都是不相等的。
+        const COLOR_RED = Symbol();
+        const COLOR_BLUE = Symbol();
+        function getComplement(color) {
+            switch (color) {
+                case COLOR_RED:
+                    return COLOR_GREEN;
+                case COLOR_BLUE:
+                    return COLOR_RED;
+                default:
+                    throw new Error('Underfined color');
+            }
+        }
+
+
+        //属性名的遍历
+        // Symbol作为属性名，该属性不会出现在for...in、for...of循环中，
+        // 也不会被Object.keys()、Object.getOwnPropertyNames()、JSON.stringify()返回。
+        // 但是，它也不是私有属性，有一个Object.getOwnPropertySymbols方法，
+        // 可以获取指定对象的所有 Symbol 属性名。
+        // 返回一个数组，成员是当前对象的所有用作属性的所有Symbol属性名
+        Object.getOwnPropertySymbols(obj)
+
+        // 新的API Reflect.ownKeys(obj);
+        let obj = {
+            [Symbol('my_key')]: 1,
+            enum: 2,
+            nonEnum: 3
+        };
+        Reflect.ownKeys(obj); //["enum", "nonEnum", Symbol(my_key)];
+        // 还有很多内容 看阮一峰 ES6教程
+
+
+
+
+
+
+
+// 字符串的扩展
+        // includes()：返回布尔值，表示是否找到了参数字符串。
+        // startsWith()：返回布尔值，表示参数字符串是否在源字符串的头部。
+        // endsWith()：返回布尔值，表示参数字符串是否在源字符串的尾部。
+
+        // repeat重复复制n次
+        'x'.repeat(10);
+        // padStart(),padEnd() 接受两个参数，第一个指定字符串的最小长度，第二个参数是用来补全字符串
+        // 'x'.padStart(5,'ab') //'ababx'
+        // 'x'.padStart(4,'ab') //'abax'
+        //模板字符串
+        var name = 'bob', time = 'today';
+        `hello $(name), how are you $(time)`;
+
+        //`djf  kaj`.trim() 能够消除字符串
+
+
+
+
+
+
+
+
+
+
+
     </script>
 </html>
