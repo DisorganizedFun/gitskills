@@ -146,3 +146,6 @@ module.exports = myModule;
 
 
 typeof 和 instanceof 这两个功能就是完全不一样的运算符。typeof 是为了检查数据类型，instanceof是为了看一个变量是否是某个对象的实例。
+
+css实现首字下沉 利用：：first-letter  和 initial-letter: 3 3 (接受两个参数，1、行高 2、沉度  目前还不支持 可用下面的降低代替
+font-size: 60px;color: hsl(350, 50%, 50%);float: left;line-height: .7;margin: 17px 2px 0 0;
