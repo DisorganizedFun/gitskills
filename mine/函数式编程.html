@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            p {
+                width: 300px;
+                font-size: 30px;
+            }
+            p::first-letter {
+                font-size: 60px;
+                color: hsl(350, 50%, 50%);
+                float: left;
+                line-height: .7;
+                margin: 17px 2px 0 0;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            的家属房间的积分卡拉斯的家属房间的积分卡拉斯的家属房间的积分卡拉斯
+            的家属房间的积分卡拉斯的家属房间的积分卡拉斯的家属房间的积分卡拉斯
+            的家属房间的积分卡拉斯的家属房间的积分卡拉斯的家属房间的积分卡拉斯
+            的家属房间的积分卡拉斯的家属房间的积分卡拉斯的家属房间的积分卡拉斯
+        </p>
+    </body>
+    <script type="text/javascript">
+
+        function sum(start, end, all) {
+            if(start > end) return all;
+            return sum(start + 1, end, all + start)
+        }
+
+//example 1  简单闭包
+//闭包是通过引用其他函数来保持该函数作用域的现象。
+        function makeAdders(value) {
+            return function add(num) {
+                return value + num;
+            }
+        }
+
+        var add_1 = makeAdders(10);
+
+//example 2 柯里化
+    //柯里化函数式一种每次只接受一个参数的函数
+    var reduce = (f, start, array) => {
+        var acc = start;
+        for (var i = 0; i < array.length; ++i)
+            acc = f(array[i], acc);
+            return acc;
+    };
+
+    var add = (x, y) => x + y;
+    var values = [1, 3, 4, 5];
+    var sumOfValues = reduce(add, 0, values);
+
+    // var map = Array.prototype.map;
+    // var a = map.call("Hello World", function(x) { return x.charCodeAt(0); })
+
+    var st1 = 'hello', st2 = 'world';
+
+    </script>
+</html>

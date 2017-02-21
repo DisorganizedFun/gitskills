@@ -1,0 +1,32 @@
+* {margin: 0; padding: 0;}
+
+body, html {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    font-size: .16rem;
+    table-layout: fixed;
+}
+
+
+th, td {
+    text-align: center;
+}
+
+
+tr {
+    padding: .2rem 0;
+}
+td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.num {
+    /*word-break: break-all;*/
+    word-wrap: break-word;
+}

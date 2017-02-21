@@ -1,0 +1,141 @@
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var window_width = document.body.clientWidth;
+var window_height = document.body.clientHeight;
+canvas.width= window_width;
+canvas.height= window_height;
+var MARGIN_TOP = Math.round(window_height/5);
+var MARGIN_LEFT =Math.round(window_width/10);
+var Radius = Math.round(window_width*4/5/108)-1;
+var balls = [];
+const colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"];
+function render(cxt){
+    cxt.clearRect(0,0,window_width, window_height);//每次时间更新都清屏，避免最新时间与旧时间叠加在一起
+    var time=new Date();
+    var hours = time.getHours();
+    var minutes = time.getMinutes();
+    var seconds = time.getSeconds();
+    renderDigit( MARGIN_LEFT , MARGIN_TOP , parseInt(hours/10) , cxt );
+    renderDigit( MARGIN_LEFT + 15*(Radius+1) , MARGIN_TOP , parseInt(hours%10) , cxt );
+    renderDigit( MARGIN_LEFT + 30*(Radius + 1) , MARGIN_TOP , 10 , cxt );
+    renderDigit( MARGIN_LEFT + 39*(Radius+1) , MARGIN_TOP , parseInt(minutes/10) , cxt);
+    renderDigit( MARGIN_LEFT + 54*(Radius+1) , MARGIN_TOP , parseInt(minutes%10) , cxt);
+    renderDigit( MARGIN_LEFT + 69*(Radius+1) , MARGIN_TOP , 10 , cxt);
+    renderDigit( MARGIN_LEFT + 78*(Radius+1) , MARGIN_TOP , parseInt(seconds/10) , cxt);
+    renderDigit( MARGIN_LEFT + 93*(Radius+1) , MARGIN_TOP , parseInt(seconds%10) , cxt);
+
+    var nextShowTimeSeconds = getCurrentShowTimeSeconds();
+    var nextHours = parseInt( nextShowTimeSeconds / 3600);
+    var nextMinutes = parseInt( (nextShowTimeSeconds - nextHours * 3600)/60 );
+    var nextSeconds = nextShowTimeSeconds % 60;
+
+    var curHours = parseInt( curShowTimeSeconds / 3600);
+    var curMinutes = parseInt( (curShowTimeSeconds - curHours * 3600)/60 );
+    var curSeconds = curShowTimeSeconds % 60;
+
+    if( nextSeconds != curSeconds ){
+        if( parseInt(curHours/10) != parseInt(nextHours/10) ){
+            addBalls( MARGIN_LEFT  , MARGIN_TOP , parseInt(hours/10) );
+        }
+        if( parseInt(curHours%10) != parseInt(nextHours%10) ){
+            addBalls( MARGIN_LEFT + 15*(Radius+1) , MARGIN_TOP , parseInt(hours/10) );
+        }
+
+        if( parseInt(curMinutes/10) != parseInt(nextMinutes/10) ){
+            addBalls( MARGIN_LEFT + 39*(Radius+1) , MARGIN_TOP , parseInt(minutes/10) );
+        }
+        if( parseInt(curMinutes%10) != parseInt(nextMinutes%10) ){
+            addBalls( MARGIN_LEFT + 54*(Radius+1) , MARGIN_TOP , parseInt(minutes%10) );
+        }
+
+        if( parseInt(curSeconds/10) != parseInt(nextSeconds/10) ){
+            addBalls( MARGIN_LEFT + 78*(Radius+1) , MARGIN_TOP , parseInt(seconds/10) );
+        }
+        if( parseInt(curSeconds%10) != parseInt(nextSeconds%10) ){
+            addBalls( MARGIN_LEFT + 93*(Radius+1) , MARGIN_TOP , parseInt(seconds%10) );
+        }
+
+        curShowTimeSeconds = nextShowTimeSeconds;
+    }
+
+    updateBalls();console.log( balls.length);
+    for( var i = 0 ; i < balls.length ; i ++ ){
+        cxt.fillStyle=balls[i].color;
+
+        cxt.beginPath();
+        cxt.arc( balls[i].x , balls[i].y , Radius , 0 , 2*Math.PI , true );
+        cxt.closePath();
+
+        cxt.fill();
+    }
+}
+setInterval(function () {
+    render(context);
+    //update();
+},50);
+function renderDigit( x , y , num , cxt){
+    cxt.fillStyle = 'rgb(0,102,153)';
+
+    for(var i = 0; i<digit[num].length;i++){
+        for(var j = 0; j<digit[num][i].length;j++){
+            if(digit[num][i][j]==1){
+                cxt.beginPath();
+                cxt.arc( x+j*2*(Radius+1)+(Radius+1) , y+i*2*(Radius+1)+(Radius+1) , Radius , 0 , 2*Math.PI );
+                cxt.closePath();
+                cxt.fill();
+            }
+        }
+    }
+}
+
+function getCurrentShowTimeSeconds() {
+    var curTime = new Date();
+    var ret = curTime.getTime();
+    ret = Math.round( ret/1000 );
+    return ret;
+}
+var curShowTimeSeconds = 0;
+curShowTimeSeconds = getCurrentShowTimeSeconds();
+
+function updateBalls(){
+
+    for( var i = 0 ; i < balls.length ; i ++ ){
+
+        balls[i].x += balls[i].vx;
+        balls[i].y += balls[i].vy;
+        balls[i].vy += balls[i].g;
+
+        if( balls[i].y >= window_height-Radius ){
+            balls[i].y = window_height-Radius;
+            balls[i].vy = - balls[i].vy*0.75;
+        }
+    }
+    /*当小球滚动到画面外的时候删除数组中这些小球*/
+    var cnt = 0;
+    /*球留在画面中就保留在数组中*/
+    for( var i = 0 ; i < balls.length ; i ++ )
+        if( balls[i].x + Radius > 0 && balls[i].x -Radius < window_width )
+            balls[cnt++] = balls[i];
+    /*球出画面中就删除数组中这些小球*/
+    while( balls.length > Math.min(300,cnt) ){//Math.min(300,cnt),只保留300个小球
+        balls.pop();
+    }
+}
+
+function addBalls( x , y , num ){
+
+    for( var i = 0  ; i < digit[num].length ; i ++ )
+        for( var j = 0  ; j < digit[num][i].length ; j ++ )
+            if( digit[num][i][j] == 1 ){
+                var aBall = {
+                    x:x+j*2*(Radius+1)+(Radius+1),
+                    y:y+i*2*(Radius+1)+(Radius+1),
+                    g:1.5+Math.random(),
+                    vx:Math.pow( -1 , Math.ceil( Math.random()*1000 ) ) * 4,//数值随机取正负值
+                    vy:-5,
+                    color: colors[ Math.floor( Math.random()*colors.length ) ]//颜色随机取某种颜色
+                };
+
+                balls.push( aBall );//把球加到前面的数组中
+            }
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="format-detection" content="telephone=no, email=no" />
+	<title>支持移动设备触摸手势的jQuery图片裁剪插件</title>
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<style>
+	#clipArea {
+		margin: 20px;
+		height: 300px;
+	}
+	#file,
+	#clipBtn {
+		margin-bottom: 10px;
+	}
+	#view {
+		margin: 0 auto;
+		width: 200px;
+		height: 200px;
+	}
+	</style>
+	<!--[if IE]>
+		<script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+<body ontouchstart="">
+	<article class="htmleaf-container">
+		<!-- <header class="htmleaf-header">
+			<h1>支持移动设备触摸手势的jQuery图片裁剪插件 <span>A Support gesture image cropping plug-in</span></h1>
+
+		</header> -->
+		<div id="clipArea"></div>
+		<input type="file" id="file">
+		<button id="clipBtn">截取</button>
+		<div id="view"></div>
+		<!-- <footer class="related">
+
+		</footer> -->
+	</article>
+
+	<script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>
+	<script src="js/iscroll-zoom.js"></script>
+	<script src="js/hammer.js"></script>
+	<script src="js/jquery.photoClip.js"></script>
+	<script>
+	//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	$("#clipArea").photoClip({
+		width: 200,
+		height: 200,
+		file: "#file",
+		view: "#view",
+		ok: "#clipBtn",
+		// outputType:"png",
+		loadStart: function() {
+			console.log("照片读取中");
+		},
+		loadComplete: function() {
+			console.log("照片读取完成");
+		},
+		clipFinish: function(dataURL) {
+			console.log(dataURL);
+		}
+	});
+	</script>
+</body>
+</html>

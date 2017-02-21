@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <style media="screen">
+    *{margin: 0; padding: 0;}
+        .main {
+            width: 80%;
+            min-width: 800px;
+            height: 500px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        .box-wrap {
+            width: 60%;
+            height: 40%;
+            position: absolute;
+            top: 20%;
+            left: 0;
+        }
+        .box {
+            width: 30%;
+            height: 100%;
+            float: left;
+            margin-left: 10px;
+        }
+        .box-1 {
+            background: red;
+        }
+        .box-2 {
+            background: cyan;
+        }
+        .box-3 {
+            background: blue;
+        }
+        .man {
+            width: 10%;
+            height: 100px;
+            background: green;
+            position: absolute;
+            top: 20%;
+            left: 80%;
+        }
+        #drug {
+            width: 40px;
+            height: 60px;
+            background: #ccc;
+            position: absolute;
+            top: 20%;
+            left: 70%;
+        }
+        .drug-animation2 {
+            animation: hor-animation 2s linear;
+        }
+
+        @-webkit-keyframes hor-animation{
+            0%{
+                transform: rotate(0);
+            }
+            100%{
+                transform: rotate(1turn);
+            }
+        }
+
+
+    </style>
+    <body>
+        <div class="main">
+            <div class="box-wrap">
+                <div class="box box-1"></div>
+                <div class="box box-2"></div>
+                <div class="box box-3"></div>
+            </div>
+            <div class="man">
+
+            </div>
+            <div class="drug"></div>
+        </div>
+        <div id="drug"></div>
+    </body>
+    <script src="js/jquery-1.11.1.min.js" charset="utf-8"></script>
+    <script src="js/paowuxian.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    // $(document).on('click','.box',function(){
+    //     var this_left = $(this).offset().left;
+    //     var this_width = $(this).width();
+    //     var drug_width = $('.drug').width();
+    //
+    //     var drug_end = this_left + this_width/2 - drug_width/2;
+    //     var man_left = $('.man').offset().left;
+    //     var fly_distance = man_left - drug_end;
+    //     var index = $(this).index();
+    //
+    // })
+
+
+
+var element = document.getElementById("drug");
+var target = document.querySelectorAll('.box');
+
+// 抛物线运动的触发
+$(document).on('click','.box',function(){
+    var that = $(this).index();
+    element.style.marginLeft = "0px";
+	element.style.marginTop = "0px";
+    var parabola = funParabola(element, target[that]).mark();
+    parabola.init();
+})
+
+
+    </script>
+</html>

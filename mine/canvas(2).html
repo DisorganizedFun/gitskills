@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <meta content="telephone=no" name="format-detection">
+        <script src="js/jquery-1.11.1.min.js" charset="utf-8"></script>
+        <script src="js/sketchpad.js" charset="utf-8"></script>
+    </head>
+    <style media="screen">
+
+        .sketchpad {
+            box-shadow:  10px 10px 50px #888;
+            display: block;
+            margin: 0 auto;
+            background-image: url(images/bg_02.png);
+            background-size: 100% 100%;
+            /*background: yellow;*/
+            /*background-image: url(images/bg_02.png);*/
+        }
+        .buttons {
+            width: 100%;
+            height: 0.25rem;
+            text-align: center;
+            position: absolute;
+            top: 4.5rem;
+            left: 0;
+            z-index: 10;
+        }
+        .buttons>div {
+            display: inline-block;
+            width: 0.5rem;
+            height: 0.25rem;
+            background: cyan;
+            text-align: center;
+            line-height: 0.25rem;
+            font-size: 12px;
+            float: left;
+            margin-left: 0.4rem;
+        }
+        /*.queding {
+
+        }*/
+        .imgbg {
+            width: 0.8rem;
+            height: 0.8rem;
+            margin: 0rem auto;
+            background-size: 100% 100%;
+        }
+        .img2 {
+            width: 100%;
+            height: 100%;
+        }
+
+        #touchImg {
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            left: 0;
+            top: 10px;
+            z-index: 10;
+        }
+    </style>
+    <body>
+        <div class="imgbg">
+            <img class="img2">
+        </div>
+
+        <!-- <img src="images/bg_02.png" id="touchImg"> -->
+
+        <div class="buttons">
+            <div class="button queding">确定</div>
+            <div class="button eraser">前一步</div>
+            <div class="button again">退一步</div>
+        </div>
+         <!-- <img src="images/bg_02.png" style="width:100px;" class="i1"> -->
+
+        <canvas class="sketchpad" id="sketchpad"><canvas>
+
+
+        <script src="js/getWidth.js"></script>
+        <script src="js/touch.js" charset="utf-8"></script>
+        <script type="text/javascript">
+        var sketchpad = new Sketchpad({
+            element: '#sketchpad',
+            width: 300,
+            height: 300,
+        });
+
+        //画板设置
+        sketchpad.penSize = 10;
+        sketchpad.animate(10);
+        sketchpad.color = '#4d4d4d';
+
+
+        // function writeImg(){
+        //     var img = new Image();
+        //     img.src = "images/bg_02.png";
+        //     img.onload = function() {
+        // 	    var ctx = sketchpad.context;
+        //         ctx.drawImage(img,50,50,200,200);
+        //     }
+        // }
+        // writeImg();
+        // var touchImg = document.querySelector('#touchImg');
+        // touch.on('touchImg','drag pinch',function(){
+        //     alert(1);
+        // })
+
+
+
+        $("#upload_photo").click(function() {
+            wx.chooseImage({
+                count: 1, // 默认9
+                sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+                sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+                success: function(res) {
+                    var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                    $(".question_hd_image").attr("src", localIds[0]);
+                    type=1;
+                    id = localIds[0];
+                }
+            });
+        });
+        // $('.queding').on('click',function(){
+        //
+        // })
+
+        $(document).on('touchstart','.button',function(){
+            var index = $(this).index();
+            if(index == 0){
+                $('.imgbg').css('background-image','url(images/bg_02.png)');
+                var cvsImg = cvsToImage();
+                console.log(cvsImg);
+                $('.img2').attr({'src':cvsImg});
+            };
+            if(index == 1){
+                sketchpad.redo();
+            }
+            if(index == 2){
+                sketchpad.undo();
+            }
+        })
+
+
+        function cvsToImage() {
+            var image = sketchpad.canvas.toDataURL("image/png");
+            return image;
+        }
+        </script>
+    </body>
+
+
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>js</title>
+    </head>
+    <style media="screen">
+        #box {
+            width: 100%;
+            height: 100px;
+            text-align: center;
+            color: #4d4d4d;
+        }
+    </style>
+    <body>
+        <div id="box">
+            <span class="days"></span>
+            <span class="hours"></span>
+            <span class="minutes"></span>
+            <span class="seconds"></span>
+        </div>
+    </body>
+    <script>
+    Array.prototype.uni = function(){
+        this.sort();
+        var b = [this[0]];
+        for(var i=1; i<this.length; i++){
+            if(this[i] !== b[b.length-1]){
+                b.push(this[i])
+            }
+        }
+        return b;
+    }
+
+    var az = [1,4,3,23,34,,432,42,'23','a',42,2,24].uni();
+    console.log(az);
+
+    // var date = new Date();
+    // var str = date.toLocaleString();
+    // console.log(str);
+    // if(str.indexOf('上午') > 0){
+    //     var s = str.replace('上午',' ');
+    //     console.log(s);
+    // }
+
+    //重复字符串
+        // function repeatStr(str,num) {
+        //     if(num<0)return '';
+        //     var s = '';
+        //     for(var i=0; i<num; i++){
+        //         s += str;
+        //     }
+        //     return s;
+        // }
+        // var a = 'xo nnn kkkkk hahahhahahah';
+        // console.log(repeatStr(a,5));
+
+    //判断结尾于目标字符是否相同
+            // function end(str,target) {
+            //     var last = str.substr(str.length-1);
+            //     if(last == target) {
+            //         return 'yes';
+            //     }else {
+            //         return 'no';
+            //     }
+            // }
+            // console.log(end(a,'a'));
+    //找出字符串中长度最长的单词
+            // function longest(str) {
+            //     var arr = str.split(' ');
+            //     for(var i=1; i<arr.length; i++){
+            //         var long = arr[0].length;
+            //         arr[i].length > arr[i-1].length ? long=arr[i].length : long;
+            //     }
+            //     return long;
+            // }
+            // console.log(longest(a));
+    //按照大小将一个数传入数组中，并返回所在的索引值
+        // var arr = [123,45,54,33,23,345,23,2,45,643,432];
+        // arr.sort(big);
+        // function big(a,b){
+        //     return a-b;
+        // }
+        // console.log(arr);
+        //
+        // function where(ar,num) {
+        //     var lastIndex = arr.length-1;
+        //     var targetIndex = 0;
+        //     for(var i=0; i<arr.length; i++) {
+        //         if(num<ar[i]){
+        //             targetIndex = i;
+        //             break;
+        //         }
+        //     }
+        //     console.log(targetIndex);
+        //     arr.splice(targetIndex,0,num);
+        //     return ar;
+        // }
+        // console.log(where(arr,33));
+    //删除数组中指定的值
+        // function destoryer(arr){
+        //     var a = arr.indexOf(33);
+        //     if(a){
+        //         arr.splice(a,1);
+        //     }
+        //     return arr;
+        // }
+        // console.log(arr.indexOf(33));
+        // console.log(destoryer(arr));
+    //
+        // var b = a.split('').reverse().join('');
+        // console.log(b);
+        // var box = document.getElementById('box');
+        // var left = box.offsetLeft;
+        // console.log(left);
+        // var a = 50;
+        // setInterval(function(){
+        //     a += 2;
+        //     box.style.left =  a + 'px';
+        // },60)
+        // myname = 'gb';
+        // function func(){
+        //     var myname = 'yhq';
+        //     console.log(myname);
+        //
+        //     console.log(myname);
+        // }
+        // func();
+        // var result = null;
+        // (function(a,b){
+        //     result = a+b;
+        //     return result;
+        //     console.log(result);
+        // })(10,20)
+        // console.log(result);
+
+        // var ab = [], max = 10;
+        // for(var i=0; ab.push(i+=2)<max;);
+        // console.log(ab);
+
+    //随机固定长度的数字字母 组合成的字符串
+        // function ab(len){
+        //     var rand = '';
+        //     for(; rand.length<len; rand += Math.random().toString(36).substr(2));
+        //     return rand.substr(0,len);
+        // }
+        // console.log(ab(8));
+
+
+    //去除空格
+        // String.prototype.trim = function(){
+        //     return this.replace(/\s+/g,'');
+        // }
+        //
+        //
+        // var a = ' e j ';
+        // b = a.trim();
+        // console.log(b.length);
+
+        // console.log(a.trim());
+        // var b = a.trim();
+        // console.log(a.length);
+        // console.log(b.length);
+
+    //
+    var arr1 = [3,35,54,4];
+    var arr2 = ['d','d','f','g','h','4'];
+    // // arr1.push(arr2);
+    // // Array.prototype.push.apply(arr1,arr2);
+    // // console.log(arr1);
+    //
+    // arr1.concat(arr2);
+    var x = [arr1,arr2]
+    console.log(x);
+    console.log(x[0][2]);
+    //对象转换为数组
+        var obj = {0:34,1:23};
+        // var arr = Array.prototype.slice.call(obj);
+        // console.log(obj);
+    // console.log(Array.isArray(obj));
+
+//获取数组中的最大值
+    //     var maxNum = Math.max.apply(null,[43,3,3,3,3,66]);
+    //     var minNum = Math.min.apply(Math,arr1);
+    //     console.log(maxNum);
+    //     console.log(minNum);
+    //
+    // var b = Math.max.apply(this,arr1);
+    // console.log(b);
+
+//清空数组
+    // arr1.length = 2;
+    // console.log(arr1);
+    // arr1 = [];
+//map
+    // var b = arr1.map(function(val){
+    //     return val-2;
+    // })
+    // console.log(b);
+
+    // var a = 2.1;
+    // var b = 2.2;
+    // var num = (a+b).toFixed(1);
+    // console.log(num);
+    // a.toFixed(3);
+var a = 0;
+// for(var i in arr1){
+//     a += arr1[i];
+// }
+
+//  var x = [],max =5;
+//  function rand(min,max) {
+//      return parseInt(Math.random()*(max-min)+min);
+//  }
+//  for(var i=1; x.push(rand(10,20))<10;);
+//
+// console.log(x);
+
+    // function daojishi(endTime) {
+    //     var totalTime = Date.parse(endTime) - Date.parse(new Date());
+    //     console.log(totalTime);
+    //     var days = Math.floor(totalTime/(1000*60*60*24));
+    //     var hours = Math.floor(totalTime/(1000*60*60)%24);
+    //     var minitues = Math.floor(totalTime/1000/60%60);
+    //     var seconds = Math.floor(totalTime/1000%60);
+    //     return {
+    //         'allTime':totalTime,
+    //         'days':days,
+    //         'hours':hours,
+    //         'minitues':minitues,
+    //         'seconds':seconds,
+    //         'total':totalTime
+    //     }
+    // }
+    //
+    // var boxs = document.querySelector('#box');
+    // var days = document.querySelector('.days'),
+    //     hours = document.querySelector('.hours'),
+    //     minitues = document.querySelector('.minitues'),
+    //     seconds = document.querySelector('.seconds');
+    // function updateTime(){
+    //     var times = daojishi('2016/9/13 18:30:00');
+    //     days.innerHTML = ('0' + times.days + '天').slice(-2);
+    //     hours.innerHTML = ('0' + times.hours + '小时').slice(-3);
+    //     minitues.innerHTML = ('0' + times.minitues).slice(-2) + '分';
+    //     seconds.innerHTML = ('0' + times.seconds).slice(-2) + '秒';
+    //     if(times.allTime<=0) {
+    //         clearInterval(timer);
+    //     }
+    // }
+    // updateTime();
+    // var timer = setInterval(updateTime,1000);
+
+
+
+// console.log(Math.max(...[-1, 100, 9001, -32]));
+// var citys = ['biejing','nanjign','shagnhai'];
+// var newCity = [...citys,'fuzhou','xiamen'];
+// console.log(...newCity);
+
+    //递归
+    // function digui(num){
+    //     if(num<1){
+    //         return 1;
+    //     }else {
+    //         return digui(num-1)*num;
+    //     }
+    // }
+    // console.log(digui(6));
+
+
+    //for-in
+    // for (var propName in window) {
+    //     console.log(propName);
+    // }
+
+
+
+
+
+    </script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #canvas{
+            display: block;
+            border: 1px solid #aaa;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="800">
+    当前浏览器不支持canvas,请更换浏览器
+</canvas>
+</body>
+<script src="js/jquery-1.7.2.js"></script>
+<script>
+
+    /*canvas.width = 1024;
+    canvas.height = 768;*/
+
+    /*context.beginPath();
+    context.moveTo(100,100);
+    context.lineTo(500,500);
+    context.lineTo(100,500);
+    context.lineTo(100,100);
+    context.closePath();
+
+    context.lineWidth = 5;
+    context.strokeStyle = 'red';
+    context.fillStyle = 'rgb(2,100,30)';
+    context.fill();
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(200,100);
+    context.lineTo(500,400);
+    context.closePath();
+
+    context.strokeStyle = '#000';
+    context.stroke();*/
+    var tangram = [
+        {p:[{x:0,y:0},{x:800,y:0},{x:400,y:400}],color:'#caff67'},
+        {p:[{x:0,y:0},{x:400,y:400},{x:0,y:800}],color:'#67becf'},
+        {p:[{x:800,y:0},{x:800,y:400},{x:600,y:600},{x:600,y:200}],color:'#ef3d61'},
+        {p:[{x:600,y:200},{x:600,y:600},{x:400,y:400}],color:'#f9f51a'},
+        {p:[{x:400,y:400},{x:600,y:600},{x:400,y:800},{x:200,y:600}],color:'#c594c0'},
+        {p:[{x:200,y:600},{x:400,y:800},{x:0,y:800}],color:'#fa8ecc'},
+        {p:[{x:800,y:400},{x:800,y:800},{x:400,y:800}],color:'#f6ca29'}
+    ];
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    for(var i=0; i<tangram.length; i++){
+        draw(tangram[i],context)
+    }
+    function draw(piece,cxt){
+        cxt.beginPath();
+        cxt.moveTo(piece.p[0].x,piece.p[0].y);
+        //console.log(piece.p[0].x,piece.p[0].y);
+        for(var j=1;j<piece.p.length;j++){
+            cxt.lineTo(piece.p[j].x,piece.p[j].y);
+        }
+        cxt.closePath();
+        cxt.fillStyle = piece.color;
+        cxt.fill();
+    }
+</script>
+</html>

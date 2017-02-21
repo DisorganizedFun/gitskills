@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,user-scalable=no" />
+        <title>css3-test</title>
+        <!-- <link rel="stylesheet" href="css/index.css?v=1.6"> -->
+        <style media="screen">
+        body {
+            -webkit-tap-highlight-color: rgba(255,0,0,0);
+        }
+        /*.img {
+            display: block;
+            width: 800px;
+            height: 450px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .img:before {
+            content: "";
+            width: 200px;
+            height: 100%;
+            position: absolute;
+            left: -150px;
+            top: 0;
+            overflow: hidden;
+            background: -moz-linear-gradient(left, rgba(255,255,255,0)0, rgba(255,255,255,.2)50%, rgba(255,255,255,0)100%);
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255,255,255,0)), color-stop(50%, rgba(255,255,255,.2)), color-stop(100%, rgba(255,255,255,0)));
+            background: -webkit-linear-gradient(left, rgba(255,255,255,0)0, rgba(255,255,255,.2)50%, rgba(255,255,255,0)100%);
+            background: -o-linear-gradient(left, rgba(255,255,255,0)0, rgba(255,255,255,.2)50%, rgba(255,255,255,0)100%);
+            -webkit-transform: skewX(-25deg);
+            -moz-transform: skewX(-25deg);
+        }
+        .img:hover:before {
+            left: 150%;
+            transition: left ease 1s;
+        }*/
+
+
+        .button1,.button2,.beauty {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+        }
+
+        /*important*/
+         input[type=checkbox]:checked + .beauty {
+            left: 53px;
+            background: orange;
+        }
+        /*important*/
+
+
+        .label1 {
+            display: block;
+            width: 80px;
+            height: 40px;
+            border-radius: 20px;
+            background: #4d4d4d;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .beauty {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: 5px;
+            background: cyan;
+            transition: all 0.3s cubic-bezier(0.42, 0, 1.0, 1.0);
+        }
+        .gan {
+            width: 70px;
+            height: 2px;
+            background: #ccc;
+        }
+        .in {
+            width: 100px;
+            height: 100px;
+            background: cyan;
+            margin-top: 50px;
+        }
+        .in>input {
+            width: 100px;
+            height: 100px;
+            opacity: 0;
+        }
+        .bg-blur2 {
+            width: 200px;
+            height: 400px;
+            background: url(images/bg.png) no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+        .bg-blur2-son {
+            width: 200px;
+            height: 400px;
+            background: inherit;
+            background-size: 100% 100%;
+            -webkit-filter: blur(3px);
+            filter: blur(3px);
+        }
+        </style>
+    </head>
+
+
+    <body>
+        <label for="ye" class="label1">
+            <input type="checkbox" id="ye"  name="nima" style="display:none">
+            <span class="beauty"></span>
+            <span class="gan"></span>
+        </label>
+        <label for="yes">
+            <input type="radio" id="yes" name="nima" style="display:none">
+            <span class="beauty"></span>
+            倒计时刻录机法拉盛设计啦放假啦山峰就的激发了
+            <p>dajlkalkljasdfj</p>
+        </label>
+
+    <!-- <a href="#" class="img"><img src="http://img.loveqiao.com/pic1.jpg" width="800"></a> -->
+    <!-- <label for="hh">
+        <span class="button1"></span>
+        <input type="checkbox" name="haha" id="hh" style="display:none">
+        nihaoadsajdajfl
+    </label> -->
+    <!-- <label for="xx">
+        <span class="button2"></span>
+        <input type="checkbox" name="haha" id="xx" style="display:none">
+        dsjflaskjdllksad;f
+    </label> -->
+    <!-- <div class="in">
+        <input type="file" accept="image/*">
+    </div> -->
+
+
+    </body>
+    <script src="js/jquery-1.11.1.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    </script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="css/lazyLoad.css">
+    </head>
+    <style media="screen">
+        figure {
+            height: 200px;
+        }
+        img {
+            width: 500px;
+        }
+    </style>
+    <body>
+
+        <figure class="progressive">
+            <img class="progressive__img progressive--not-loaded" data-progressive="images/girl.png" src="images/girl.png">
+        </figure>
+        <figure class="progressive">
+            <img class="progressive__img progressive--not-loaded" data-progressive="images/girl.png">
+        </figure>
+        <figure class="progressive">
+            <img class="progressive__img progressive--not-loaded" data-progressive="images/girl.png">
+        </figure>
+
+        <figure class="progressive">
+            <img class="progressive__img progressive--not-loaded" data-progressive="images/girl.png">
+        </figure>
+        <figure class="progressive">
+            <img class="progressive__img progressive--not-loaded" data-progressive="images/girl.png">
+        </figure>
+        <figure class="progressive">
+            <img class="progressive__img progressive--not-loaded" data-progressive="images/girl.png">
+        </figure>
+
+        <figure class="progressive">
+            <img class="progressive__img progressive--not-loaded" data-progressive="images/girl.png">
+        </figure>
+        <figure class="progressive">
+            <img class="progressive__img progressive--not-loaded" data-progressive="images/girl.png">
+        </figure>
+        <figure class="progressive">
+            <img class="progressive__img progressive--not-loaded" data-progressive="images/girl.png">
+        </figure>
+
+        <figure class="progressive">
+            <img class="progressive__img progressive--not-loaded" data-progressive="images/bg.png" src="images/girl.png">
+        </figure>
+        <figure class="progressive">
+            <img class="progressive__img progressive--not-loaded" data-progressive="images/bg.png" src="images/girl.png">
+        </figure>
+        <figure class="progressive">
+            <img class="progressive__img progressive--not-loaded" data-progressive="images/bg.png" src="images/girl.png">
+        </figure>
+    </body>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/lazyLoad.js"></script>
+    <script type="text/javascript">
+    progressively.init({
+        onLoadComplete: function() {
+            console.log('All images loaded!');
+        }
+    });
+
+    </script>
+</html>
