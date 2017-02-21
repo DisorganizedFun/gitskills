@@ -1,0 +1,54 @@
+
+.masking {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 888;
+}
+.masking-load {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.main {
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.alert-message {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 100%;
+    top: 0;
+    z-index: 999;
+}
+.alert-message > p {
+    max-width: 80%;
+    background: rgba(0, 0, 0, 0.8);
+    font-size: .26rem;
+    padding: 0.2rem;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    left: -50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+
+
+.none {
+    display: none;
+}
