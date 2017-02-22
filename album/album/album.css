@@ -1,0 +1,301 @@
+*{padding: :0;margin: 0;}
+body {
+	font-family: 'helvetica';
+	-webkit-tap-highlight-color: transparent;
+}
+.line-scale-pulse-out{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	font-size: 0;
+	text-align: center;
+}
+.line-scale-pulse-out2{
+	text-align: center;
+	display: none;
+	font-size: 0;
+	margin-bottom: 0.2rem;
+}
+@-webkit-keyframes line-scale-pulse-out {
+  0% {
+    -webkit-transform: scaley(1);
+            transform: scaley(1);
+  }
+  50% {
+    -webkit-transform: scaley(2);
+            transform: scaley(2);
+  }
+  100% {
+    -webkit-transform: scaley(1);
+            transform: scaley(1);
+  }
+}
+
+@keyframes line-scale-pulse-out {
+  0% {
+    -webkit-transform: scaley(1);
+            transform: scaley(1);
+  }
+  50% {
+    -webkit-transform: scaley(2);
+            transform: scaley(2);
+  }
+  100% {
+    -webkit-transform: scaley(1);
+            transform: scaley(1);
+  }
+}
+
+
+.line-scale-pulse-out > div,.line-scale-pulse-out2>div{
+  background-color:  #474d50;
+  width: 0.05rem;
+  height: 0.3rem;
+  border-radius: 0.02rem;
+  margin: 0.08rem;
+  display: inline-block;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+
+  -webkit-animation: line-scale-pulse-out 0.9s 0s infinite cubic-bezier(.85, .25, .37, .85);
+          animation: line-scale-pulse-out 0.9s 0s infinite cubic-bezier(.85, .25, .37, .85);
+}
+.line-scale-pulse-out > div:nth-child(2), .line-scale-pulse-out > div:nth-child(4) {
+    -webkit-animation-delay: 0.2s !important;
+            animation-delay: 0.2s !important;
+}
+.line-scale-pulse-out > div:nth-child(1), .line-scale-pulse-out > div:nth-child(5) {
+    -webkit-animation-delay: 0.4s !important;
+            animation-delay: 0.4s !important;
+}
+.line-scale-pulse-out2 > div:nth-child(2), .line-scale-pulse-out2 > div:nth-child(4) {
+    -webkit-animation-delay: 0.2s !important;
+            animation-delay: 0.2s !important;
+}
+.line-scale-pulse-out2 > div:nth-child(1), .line-scale-pulse-out2 > div:nth-child(5) {
+    -webkit-animation-delay: 0.4s !important;
+            animation-delay: 0.4s !important;
+}
+
+.content{
+	overflow: hidden;
+	width: 100%;
+}
+.noPhoto{
+	width: 3.57rem;
+	display: none;
+	position: absolute;
+	text-align: center;
+	left: 50%;
+	top: 45%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+}
+.noPhoto>img{
+	width: 1.72rem;
+	height: 1.72rem;
+}
+.noPhoto>p{
+	color: #474d50;
+	font-size: 0.28rem;
+	line-height: 0.28rem;
+	margin-top: 0.32rem;
+}
+.moveWrap{
+	width: 200%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	display: -webkit-flex;
+	overflow: hidden;
+}
+.photoWrap{
+	position: relative;
+	overflow: hidden;
+	/*padding-bottom: 0.8rem;*/
+	box-sizing: border-box;
+}
+.albumWrap::-webkit-scrollbar,.albumMore::-webkit-scrollbar{
+	display: none;
+}
+.albumWrap,.albumMore{
+	/*position: relative;*/
+	padding-left: 0.32rem;
+	width: 7.5rem;
+	box-sizing: border-box;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+h1{
+	margin: 0.3rem 0;
+	font-size: 0.36rem;
+	color: #474d50;
+	text-align: center;
+}
+.footText{
+	display: none;
+	/*position: relative;
+	bottom: 0;
+	left: 0;*/
+	width: 100%;
+	font-weight: lighter;
+	margin-bottom: 0.5rem;
+	text-align: center;
+	font-size: 0.28rem;
+	color: #abb7b9;
+}
+.albums{
+	position: relative;
+}
+.date{
+	width: 0.98rem;
+	height: 1.12rem;
+	background: url(date.png) center center no-repeat;
+	background-size: 0.98rem 1.12rem;
+	position: absolute;
+	left: 0;
+	top: 0;
+	text-align: center;
+	margin-top:0.04rem;
+}
+.yearMonth{
+	font-size: 0.18rem;
+	color: #838c8e;
+	line-height: 0.18rem;
+	margin: 0.16rem 0 0.06rem 0;
+}
+.day{
+	font-size: 0.68rem;
+	color: #474d50;
+	line-height: 0.68rem;
+}
+.imgWrap{
+	padding-left: 1.26rem;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	display: -webkit-flex;
+	-webkit-box-pack: start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	position: relative;
+}
+.photo{
+	width: 1.84rem;
+	height: 1.84rem;
+	margin-top: 0.04rem;
+	margin-right: 0.04rem;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.photo:nth-child(3n){
+	margin-right: 0;
+}
+.mask{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: rgba(71,77,80,0.5);
+	color: #fff;
+	pointer-events: none;
+	text-align: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	display: -webkit-flex;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+.imgCount{
+	margin-right: 0.03rem;
+	font-size: 0.46rem;
+	line-height: 1.84rem;
+}
+.textZhang{
+	font-size: 0.2rem;
+	line-height: 2rem;
+}
+.camera{
+	padding-left: 1.26rem;
+	overflow: hidden;
+	font-size: 0.2rem;
+	color: #abb7b9;
+	margin-top:0.18rem;
+	margin-bottom: 0.6rem;
+}
+.cameraMore{
+	padding-left: 0;
+	overflow: hidden;
+	font-size: 0.2rem;
+	color: #abb7b9;
+	margin-top:0.5rem;
+	margin-bottom: 0.32rem;
+}
+.camera>p,.point,.camera>img{
+	float: left;
+}
+.camera>img{
+	width: 0.26rem;
+	height: 0.26rem;
+	margin-right: 0.12rem;
+}
+.camera>p{
+	line-height: 0.26rem;
+}
+.point{
+	width: 0.04rem;
+	height: 0.04rem;
+	margin: 0.11rem 0.06rem;
+	background: #abb7b9;
+	border-radius: 50%;
+}
+.time{
+	float: right!important;
+	margin-right: 0.32rem;
+}
+.top{
+	font-size: 0.34rem;
+	line-height: 0.34rem;
+	color:#727d7f;
+	text-align: center;
+	margin-top: 0.5rem;
+	position: relative;
+}
+.top>img{
+	position: absolute;
+	width: 0.5rem;
+	height: 0.5rem;
+	left:-0.2rem;
+	top:-0.16rem;
+	padding: 0.1rem;
+}
+.allImgWrap{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	display: -webkit-flex;
+	-webkit-box-pack: start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	padding-bottom: 0.32rem;
+}
+.allImgWrap>div{
+	width: 1.68rem;
+	height: 1.68rem;
+	margin-bottom: 0.04rem;
+	margin-right: 0.04rem;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.allImgWrap>div:nth-child(4n){
+	margin-right: 0;
+}
