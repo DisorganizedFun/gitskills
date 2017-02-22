@@ -52,9 +52,21 @@
 
 
     // 统计数组个数
-    Array.prototype.count = function() {
-        
+    var obj1 = {};
+    function count(str) {
+        str.replace(/(\w{1})/g, function($1) {
+            obj1[$1] ? obj1[$1]+=1 : obj1[$1] = 1;
+        })
+        return obj1;
     }
+    console.log(count('dsjfsjflasdkjflasjfla'));
+
+
+    var arr = 'abcdaabc';
+    var info = arr
+        .split('')
+        .reduce((p, k) => (p[k]++ || (p[k] = 1), p), {});
+
 
 
 
