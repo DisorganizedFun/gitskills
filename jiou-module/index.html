@@ -31,7 +31,7 @@
 
 
         <div class="alert-message none">
-            <p>您的信！</p>
+            <p>您的信</p>
         </div>
 
 
@@ -130,30 +130,30 @@
 
         // 弹窗 常用二
         function AlertWindow(ele, masking, close) {
+            this.masking = masking ? $(masking) : false;
             this.close = close ? $(close) : false;
-            this.ele = $(ele),
-            this.masking = $(masking);
-            console.log(this.close);
+            this.ele = $(ele);
         }
-        AlertWindow.prototype.alert = function() {
+        AlertWindow.prototype.hand_close = function() {
             var that_ele = this.ele;
             var that_masking = this.masking;
             that_masking.fadeIn(100);
-            if(this.close) {
-                that_ele.fadeIn(100);
-                this.close.on('click',function() {
-                    that_ele.fadeOut(100);
-                    that_masking.fadeOut(100);
-                    that_ele.off('click');
-                })
-            }
-            else {
-                that_masking.fadeIn(100);
-                that_ele.fadeIn().delay(1500).fadeOut(400, function() {
-                    that_masking.fadeOut(200);
-                })
-
-            }
+            that_ele.fadeIn(100);
+            this.close.on('click',function() {
+                that_ele.fadeOut(100);
+                that_masking.fadeOut(100);
+                that_ele.off('click');
+            })
+        }
+        AlertWindow.prototype.auto_close = function(time) {
+            var that_masking = this.masking;
+            that_masking.fadeIn(100);
+            this.ele.fadeIn().delay(time).fadeOut(400, function() {
+                that_masking.fadeOut(200);
+            })
+        }
+        AlertWindow.prototype.prompt = function(time) {
+            this.ele.fadeIn().delay(time).fadeOut();
         }
 
 
@@ -166,7 +166,6 @@
             startX = e.originalEvent.targetTouches[0].clientX;
             isTouch = true;
         })
-
         function scrollLeft() {
             if(isTouch) return;
             var scrollL = $('.main-2').scrollLeft();
@@ -175,12 +174,25 @@
                 requestAnimationFrame(scrollLeft)
             }
         }
-
         setTimeout(function() {
             requestAnimationFrame(scrollLeft);
         },500)
 
 
+        // function BgMove(ele) {
+        //     var win_width = document.documentElement.clientWidth;
+        //     var rems = win_width / 640 * 100;
+        //     var isTouch = false;
+        //     this.ele = $(ele);
+        //     var ele_width = this.ele.innerWidth();
+        //     var move_distance = ele_width - win_width;
+        // }
+        // BgMove.prototype.move = function(direction) {
+        //     var scrollLeft = this.ele.scrollLeft();
+        //     this.ele.scrollLeft(scrollLeft + 1);
+        //     scrollLeft < move_distance * rems ? requestAnimationFrame(this.move()) : return;
+        // }
+        // var bgmove = new BgMove('.')
 
 
 
@@ -191,41 +203,8 @@
 
 
 
-        function AlertWindow(ele, masking, close) {
-            this.masking = masking ? $(masking) : false;
-            this.close = close ? $(close) : false;
-            this.ele = $(ele);
-        }
-
-        AlertWindow.prototype.hand_close = function() {
-            var that_ele = this.ele;
-            var that_masking = this.masking;
-
-            that_masking.fadeIn(100);
-            that_ele.fadeIn(100);
-
-            this.close.on('click',function() {
-                that_ele.fadeOut(100);
-                that_masking.fadeOut(100);
-                that_ele.off('click');
-            })
-        }
-
-        AlertWindow.prototype.auto_close = function(time) {
-            var that_masking = this.masking;
-            that_masking.fadeIn(100);
-            this.ele.fadeIn().delay(time).fadeOut(400, function() {
-                that_masking.fadeOut(200);
-            })
-        }
-
-        AlertWindow.prototype.prompt = function(time) {
-            this.ele.fadeIn().delay(time).fadeOut();
-        }
 
 
-        var alertWindow = new AlertWindow('.alert-message');
-        alertWindow.prompt(2000);
 
 
 
