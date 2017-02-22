@@ -21,19 +21,51 @@
         </div>
     </body>
     <script>
-    Array.prototype.uni = function(){
+    // 去重  也不太好
+    Array.prototype.uni = function() {
         this.sort();
-        var b = [this[0]];
-        for(var i=1; i<this.length; i++){
-            if(this[i] !== b[b.length-1]){
-                b.push(this[i])
+        console.log(this);
+        var newArr = [this[0]];
+        var that = this;
+        this.forEach(function(value, index, array) {
+            if(that[index+1] !== newArr[newArr.length - 1]){
+                newArr.push(that[index+1]);
             }
-        }
-        return b;
+        })
+        return newArr;
+    }
+    var az = [23,23,23,1,4,'好啊',{a:1},{a:2},3,23,34,,432,42,'23','a',42,2,24].uni();
+    // console.log(az);
+
+    // 第二种去重 也不好
+    Array.prototype.uni2 = function() {
+        var newArr = [];
+        var that = this;
+        this.forEach(function(value, index, array) {
+            if(newArr.indexOf(that[index]) === -1)
+                newArr.push(that[index]);
+        })
+        return newArr
+    }
+    var azz = [23,23,23,1,4,'好啊','好啊',{a:1},{a:2},3,23,34,,432,42,'23','a',42,2,24].uni2();
+    // console.log(azz);
+
+
+    // 统计数组个数
+    Array.prototype.count = function() {
+        
     }
 
-    var az = [1,4,3,23,34,,432,42,'23','a',42,2,24].uni();
-    console.log(az);
+
+
+    // 求最大值
+    var bz = [2,34,12,12,343,2311,66];
+    Array.prototype.max = function() {
+        return this.reduce(function(x,y){return x > y ? x : y})
+    }
+    Math.max(...bz);
+
+
 
     // var date = new Date();
     // var str = date.toLocaleString();
