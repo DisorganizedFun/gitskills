@@ -197,9 +197,41 @@
 
 
 
+        // 倒计时
+        function fullTime(t){
+            var days = Math.floor(t/(60 * 60 * 24))
+            var hours = Math.floor(t/(60 * 60) % 24);
+            var minutes = Math.floor(t / 60 % 60);
+            var seconds = Math.floor(t % 60);
+            return times = {
+                all : t,
+                days : days,
+                hours : hours,
+                minutes : minutes,
+                seconds : seconds
+            }
+        }
+        function countDown(t){
+            var timer = setInterval(function(){
+                var ts = fullTime(t);
+                t--;
+                ts.days = '0' + ts.days;
+                ts.hours = '0' + ts.hours;
+                ts.minutes = '0' + ts.minutes;
+                ts.seconds = '0' + ts.seconds;
 
+                $('.day1').html(ts.days.slice(-2));
+                $('.hour1').html(ts.hours.slice(-2));
+                $('.min1').html(ts.minutes.slice(-2));
+                $('.second1').html(ts.seconds.slice(-2));
 
-
+                if(ts.all <= 0){
+                    clearInterval(timer);
+                    buy(ele);
+                }
+            },1000)
+        }
+        countDown(172800);
 
 
 

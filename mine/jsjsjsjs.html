@@ -52,73 +52,169 @@
 
 
     // 统计数组个数
-    var obj1 = {};
+    // replace(arg1, function(x,y){}) arg1表示符合匹配的条件 x表示匹配到的值 y表示匹配到的值的下标
+    // reduce(function(x,y) {}) x表示累计的值  y表示当前数组元素的值   function callbackfn(previousValue, currentValue, currentIndex, array1)
+    // includes()   arr.includes(item)  表示arr中是否包含着item  返回true 或 false;
+
+
     function count(str) {
+        var obj1 = {};
+        // 1
         str.replace(/(\w{1})/g, function($1) {
             obj1[$1] ? obj1[$1]+=1 : obj1[$1] = 1;
         })
         return obj1;
+        //1
+
+        //2
+        // for(var i = 0; i < str.length; i++) {
+        //     obj1[str[i]] ? obj1[str[i]]++ : obj1[str[i]] = 1;
+        // }
+        // return obj1;
+        //2
     }
-    console.log(count('dsjfsjflasdkjflasjfla'));
-
-
-    var arr = 'abcdaabc';
-    var info = arr
-        .split('')
-        .reduce((p, k) => (p[k]++ || (p[k] = 1), p), {});
-
+    console.log(count('dkjalksdjlsjflaskjfa'));
 
 
 
     // 求最大值
     var bz = [2,34,12,12,343,2311,66];
     Array.prototype.max = function() {
-        return this.reduce(function(x,y){return x > y ? x : y})
+        return this.reduce(function(x,y,index,array){return x > y ? x : y})
     }
     Math.max(...bz);
 
 
+    //区分数组间的差异
+    function diffArray(arr1, arr2) {
+        var arrAll = arr1.concat(arr2);
+        return arrAll.filter(function(x) {
+            return !(arr1.includes(x) && arr2.includes(x));
+        })
+    }
+    // console.log(diffArray([1,3,5,6], [1,3,7,5]));
 
-    // var date = new Date();
-    // var str = date.toLocaleString();
-    // console.log(str);
-    // if(str.indexOf('上午') > 0){
-    //     var s = str.replace('上午',' ');
-    //     console.log(s);
-    // }
+    // 找出字符串中长度最长的单词
+    function long(str) {
+        var arr = str.split(' ');
+        var longStr = arr[0];
+        arr.forEach(function(value, index, array) {
+            value.length > longStr.length ? longStr = value : longStr;
+        })
+        return longStr;
+    }
+    // console.log(long('nfd dsjafkl sjfk sajflk skfdjlkjlasfja jlkajfka'));
 
-    //重复字符串
-        // function repeatStr(str,num) {
-        //     if(num<0)return '';
-        //     var s = '';
-        //     for(var i=0; i<num; i++){
-        //         s += str;
-        //     }
-        //     return s;
-        // }
-        // var a = 'xo nnn kkkkk hahahhahahah';
-        // console.log(repeatStr(a,5));
 
-    //判断结尾于目标字符是否相同
-            // function end(str,target) {
-            //     var last = str.substr(str.length-1);
-            //     if(last == target) {
-            //         return 'yes';
-            //     }else {
-            //         return 'no';
-            //     }
-            // }
-            // console.log(end(a,'a'));
-    //找出字符串中长度最长的单词
-            // function longest(str) {
-            //     var arr = str.split(' ');
-            //     for(var i=1; i<arr.length; i++){
-            //         var long = arr[0].length;
-            //         arr[i].length > arr[i-1].length ? long=arr[i].length : long;
-            //     }
-            //     return long;
-            // }
-            // console.log(longest(a));
+    // 二维数组去重；
+    var arr = [1,2,3,[1,1,2],[3,2],2];
+    var result = arr.reduce(function(v, i) {
+        if (Array.isArray(i)) {
+            i.forEach(function(item) {
+                if (v.indexOf(item) < 0) {
+                    v.push(item);
+                }
+            });
+        } else {
+            if (v.indexOf(i) < 0) {
+                v.push(i);
+            }
+        }
+        return v;
+    }, []);
+    // console.log(result);
+
+    var url = 'http: //www.a.com/index.php?route=main&nav&user=tom&id=123&profile';
+
+    function splitUrl(url) {
+        var obj = {};
+        var newArr = url.substring(url.indexOf('?') + 1)
+            .split('&')
+            .forEach(function(value) {
+                var oArr = value.split('=');
+                oArr.length < 2 ? obj[oArr[0]] = '' : obj[oArr[0]] = oArr[1];
+            })
+        return obj;
+    }
+    console.log(splitUrl(url));
+
+
+
+    //求results里 code相同 poll相加的最大值 还没写
+    var results = [
+        {
+            "uid": "5744242bc4c971005d5ff04e",
+            "data": [
+                {
+                    "code": "57442329a3413100625f194f",
+                    "poll": 7
+                },
+                {
+                    "code": "5744242bc4c971005d5ff04e",
+                    "poll": 2
+                }
+            ]
+        },
+        {
+            "uid": "57442329a3413100625f194f",
+            "data": [
+                {
+                    "code": "574417bc79df540065d92df7",
+                    "poll": 9
+                }
+            ]
+        },
+        {
+            "uid": "574417bc79df540065d92df7",
+            "data": [
+                {
+                    "code": "574417bc79df540065d92df7",
+                    "poll": 9
+                }
+            ]
+        },
+        {
+            "uid": "574424e5df0eea0063adefc6",
+            "data": [
+                {
+                    "code": "574a841d1532bc006068c6c9",
+                    "poll": 3
+                },
+                {
+                    "code": "574a97fe2b51e90056e423c0",
+                    "poll": 6
+                }
+            ]
+        },
+        {
+            "uid": "574a841d1532bc006068c6c9",
+            "data": [
+                {
+                    "code": "574424e5df0eea0063adefc6",
+                    "poll": 1
+                },
+                {
+                    "code": "574a841d1532bc006068c6c9",
+                    "poll": 2
+                },
+                {
+                    "code": "574a97fe2b51e90056e423c0",
+                    "poll": 5
+                }
+            ]
+        },
+        {
+            "uid": "574a97fe2b51e90056e423c0",
+            "data": [
+                {
+                    "code": "574a97fe2b51e90056e423c0",
+                    "poll": 1
+                }
+            ]
+        }
+    ]
+
+
     //按照大小将一个数传入数组中，并返回所在的索引值
         // var arr = [123,45,54,33,23,345,23,2,45,643,432];
         // arr.sort(big);
@@ -218,9 +314,9 @@
     console.log(x);
     console.log(x[0][2]);
     //对象转换为数组
-        var obj = {0:34,1:23};
+        // var obj = {0:34,1:23};
         // var arr = Array.prototype.slice.call(obj);
-        // console.log(obj);
+        // console.log(arr);
     // console.log(Array.isArray(obj));
 
 //获取数组中的最大值
