@@ -1,57 +1,57 @@
-/*****±Ê¼Ç******/
+/*****ç¬”è®°******/
 var u = navigator.userAgent;
-var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //iosÖÕ¶Ë 
-var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //androidÖÕ¶Ë 
+var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //iosç»ˆç«¯ 
+var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //androidç»ˆç«¯ 
 
-typeofÎŞ·¨ÅĞ¶ÏFunctionºÍArray,typeofÔÚÃ»ÓĞletµÄÇé¿öÏÂÊ¹ÓÃÊ®·Ö°²È«£¬¼´Ê¹ÊÇÒ»¸öÎ´¶¨ÒåµÄ±äÁ¿Ò²²»»á±¨´í  Array.isArray(object)¿ÉÒÔÓÃÀ´ÅĞ¶ÏÊı×é ·µ»Ø²¼¶ûÖµ
+typeofæ— æ³•åˆ¤æ–­Functionå’ŒArray,typeofåœ¨æ²¡æœ‰letçš„æƒ…å†µä¸‹ä½¿ç”¨ååˆ†å®‰å…¨ï¼Œå³ä½¿æ˜¯ä¸€ä¸ªæœªå®šä¹‰çš„å˜é‡ä¹Ÿä¸ä¼šæŠ¥é”™  Array.isArray(object)å¯ä»¥ç”¨æ¥åˆ¤æ–­æ•°ç»„ è¿”å›å¸ƒå°”å€¼
 
-arr.push(arr2)×é³ÉÒ»¸ö¶şÎ¬Êı×é
+arr.push(arr2)ç»„æˆä¸€ä¸ªäºŒç»´æ•°ç»„
 
-indexOf Êı×é×Ö·û´®¶¼ÄÜÓÃ
+indexOf æ•°ç»„å­—ç¬¦ä¸²éƒ½èƒ½ç”¨
 
-false == 0 »ò ¡°¡± == 0 ·µ»ØµÄ½á¹ûÊÇtrue
+false == 0 æˆ– â€œâ€ == 0 è¿”å›çš„ç»“æœæ˜¯true
 
-Á¢¼´Ö´ĞĞº¯ÊıÀïÃæ ÒªÏëÍâ²¿·ÃÎÊµ½ĞèÒªÔÚÍâ²¿ÏÈ¶¨ÒåÈ«¾Ö±äÁ¿£¬²¢ÇÒreturn¡£ Èôreturn ÄÚ²¿·ÃÎÊ²»µ½
+ç«‹å³æ‰§è¡Œå‡½æ•°é‡Œé¢ è¦æƒ³å¤–éƒ¨è®¿é—®åˆ°éœ€è¦åœ¨å¤–éƒ¨å…ˆå®šä¹‰å…¨å±€å˜é‡ï¼Œå¹¶ä¸”returnã€‚ è‹¥return å†…éƒ¨è®¿é—®ä¸åˆ°
 
-for(var i=0; ab.push(i+=2)<max;); ¿ìËÙÉú³ÉÒ»¸öµÈ²î¡¢µÈ±ÈÊı×é£»pushÄÚ²¿ÄÜ½ÓÊÕËãÊ½Ò²ÄÜ½Óº¯Êı maxºóÃæµÄ·ÖºÅ±ØĞë¼Ó£»
+for(var i=0; ab.push(i+=2)<max;); å¿«é€Ÿç”Ÿæˆä¸€ä¸ªç­‰å·®ã€ç­‰æ¯”æ•°ç»„ï¼›pushå†…éƒ¨èƒ½æ¥æ”¶ç®—å¼ä¹Ÿèƒ½æ¥å‡½æ•° maxåé¢çš„åˆ†å·å¿…é¡»åŠ ï¼›
 
-trim()Ö»ÄÜÈ¥³ıÊ×Î²µÄ¿Õ¸ñ£¬ /\s+/g ÓÃÕıÔòÆ¥ÅäËùÓĞµÄ¿Õ¸ñ£¬È»ºóÓÃreplaceÌæ»»¡£
+trim()åªèƒ½å»é™¤é¦–å°¾çš„ç©ºæ ¼ï¼Œ /\s+/g ç”¨æ­£åˆ™åŒ¹é…æ‰€æœ‰çš„ç©ºæ ¼ï¼Œç„¶åç”¨replaceæ›¿æ¢ã€‚
 
-Çå¿ÕÊı×é ÓÃarr=[] »ò arr.length = 0;
+æ¸…ç©ºæ•°ç»„ ç”¨arr=[] æˆ– arr.length = 0;
 
-0.1+0.2 === 0.3 //false  ÓÃtofixedÖ¸¶¨Ğ¡ÊıÎ»Êı
+0.1+0.2 === 0.3 //false  ç”¨tofixedæŒ‡å®šå°æ•°ä½æ•°
 
-Ê±ÖÓ²¹0 slice£¨-2£©
+æ—¶é’Ÿè¡¥0 sliceï¼ˆ-2ï¼‰
 
-safariä¯ÀÀÆ÷ÏÂ ÈôÓÃÊÂ¼şÎ¯ÍĞ click½«Ê§Ğ§ ĞèÒª¸øbodyÔªËØÌí¼Ócursor:point; »òÕß¸ÄÎªtouchstart ÒÆ¶¯¶ËÆ»¹ûÊÖ»ú
+safariæµè§ˆå™¨ä¸‹ è‹¥ç”¨äº‹ä»¶å§”æ‰˜ clickå°†å¤±æ•ˆ éœ€è¦ç»™bodyå…ƒç´ æ·»åŠ cursor:point; æˆ–è€…æ”¹ä¸ºtouchstart ç§»åŠ¨ç«¯è‹¹æœæ‰‹æœº
 
-Array.from() ¿ÉÒÔ½«ÀàÊı×é»ò×Ö·û´®×ª»»ÎªÊı×é£»
+Array.from() å¯ä»¥å°†ç±»æ•°ç»„æˆ–å­—ç¬¦ä¸²è½¬æ¢ä¸ºæ•°ç»„ï¼›
 
-iScroll±ØĞëÍ¨¹ıwindow.onloadÖĞÊµÀı»¯£¬»òÕßÔÚÊÂ¼şÖĞÊµÀı»¯¡£·ñÔò»áÓĞÎÊÌâ¡£
+iScrollå¿…é¡»é€šè¿‡window.onloadä¸­å®ä¾‹åŒ–ï¼Œæˆ–è€…åœ¨äº‹ä»¶ä¸­å®ä¾‹åŒ–ã€‚å¦åˆ™ä¼šæœ‰é—®é¢˜ã€‚
 
-andriod»ú×ÓinputÔÚfocus×´Ì¬ÄÚÈİ»á±»Ñ¹Ëõ £¨´øÓĞ¾ø¶Ô¶¨Î»µÄÔªËØ¿í¸ß±£³Ö²»±ä£©£¬·½·¨£ºÅĞ¶ÏÊÇ·ñÊÇ°²×¿»ú »ñÈ¡ÆÁÄ»¸ß¶È£¬¶¯Ì¬ÉèÖÃ×îÍâÎ§°ü¹üÔªËØµÄ¸ß¶È¼´¿É
+andriodæœºå­inputåœ¨focusçŠ¶æ€å†…å®¹ä¼šè¢«å‹ç¼© ï¼ˆå¸¦æœ‰ç»å¯¹å®šä½çš„å…ƒç´ å®½é«˜ä¿æŒä¸å˜ï¼‰ï¼Œæ–¹æ³•ï¼šåˆ¤æ–­æ˜¯å¦æ˜¯å®‰å“æœº è·å–å±å¹•é«˜åº¦ï¼ŒåŠ¨æ€è®¾ç½®æœ€å¤–å›´åŒ…è£¹å…ƒç´ çš„é«˜åº¦å³å¯
 
-×Ô¶¨Òåcheckbox/radioÑùÊ½ ¿ÉÒÔÊ¹ÓÃcheckedÎ±ÀàÀ´ÊµÏÖ inputÊ¼ÖÕÒş²Ø£» hoverÎŞ·¨Í¨¹ı×Ó¼¶¸Ä±ä¸¸¼¶
+è‡ªå®šä¹‰checkbox/radioæ ·å¼ å¯ä»¥ä½¿ç”¨checkedä¼ªç±»æ¥å®ç° inputå§‹ç»ˆéšè—ï¼› hoveræ— æ³•é€šè¿‡å­çº§æ”¹å˜çˆ¶çº§
 
-table²¼¾Ö£º1¡¢¸¸¼¶display:table;border-spacing(Ã¿¸ö×Ó¼¶Ö®¼äµÄ¼ä¾à) ×Ó¼¶£ºdiaplay:table-cell;width:µÈ¿íµÄ»°ËæÒâÖ¸¶¨Ò»¸ö¿í¶È¼´¿É£¬²»Ö¸¶¨¿í¶È£¬½«¸ù¾İÄÚÈİ×ÔÊÊÓ¦£»×Ó¼¶
+tableå¸ƒå±€ï¼š1ã€çˆ¶çº§display:table;border-spacing(æ¯ä¸ªå­çº§ä¹‹é—´çš„é—´è·) å­çº§ï¼šdiaplay:table-cell;width:ç­‰å®½çš„è¯éšæ„æŒ‡å®šä¸€ä¸ªå®½åº¦å³å¯ï¼Œä¸æŒ‡å®šå®½åº¦ï¼Œå°†æ ¹æ®å†…å®¹è‡ªé€‚åº”ï¼›å­çº§
 
-±äÁ¿²»ÄÜÉ¾³ı£¬ÊôĞÔ¿ÉÒÔÉ¾³ı£¬ÀıÈç£º a = 10 ¿ÉÒÔ¿´³ÉÊÇwindow.a = 10 ¿ÉÒÔÈÏÎªÊÇwindowµÄÒ»¸öÊôĞÔ£¬¿ÉÒÔÉ¾³ı.
+å˜é‡ä¸èƒ½åˆ é™¤ï¼Œå±æ€§å¯ä»¥åˆ é™¤ï¼Œä¾‹å¦‚ï¼š a = 10 å¯ä»¥çœ‹æˆæ˜¯window.a = 10 å¯ä»¥è®¤ä¸ºæ˜¯windowçš„ä¸€ä¸ªå±æ€§ï¼Œå¯ä»¥åˆ é™¤.
 
-transition:left 1s ease 0s;  Èç¹û0ºóÃæ²»¼Ós ÎŞ·¨ÉúĞ§£»
+transition:left 1s ease 0s;  å¦‚æœ0åé¢ä¸åŠ s æ— æ³•ç”Ÿæ•ˆï¼›
 
-ÊÖ»úºáÊúÆÁÊ± ÓÅÏÈ¼àÌıresize,orientationchangeÓĞÊ±ºò»á·¢Éú´íÎó
+æ‰‹æœºæ¨ªç«–å±æ—¶ ä¼˜å…ˆç›‘å¬resize,orientationchangeæœ‰æ—¶å€™ä¼šå‘ç”Ÿé”™è¯¯
 
-0.5pxÓĞĞ©ÊÖ»úÎŞ·¨Ê¶±ğ
+0.5pxæœ‰äº›æ‰‹æœºæ— æ³•è¯†åˆ«
 
-Ê¡ÂÔºÅ£¨1£©£ºdisplay: -webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
-Ê¡ÂÔºÅ£¨2£©£ºwhite-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+çœç•¥å·ï¼ˆ1ï¼‰ï¼šdisplay: -webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
+çœç•¥å·ï¼ˆ2ï¼‰ï¼šwhite-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 
 
-×Ô¶¨Òåcheckbox/radio°´Å¥µÄÊ±ºò °´Å¥µÄ±êÇ©±ØÒª·ÅÔÚinputµÄºóÃæ£»·ñÔò»áÊ§Ğ§  radio±ØĞëÓĞÒ»¸ö¹²Í¬µÄname
+è‡ªå®šä¹‰checkbox/radioæŒ‰é’®çš„æ—¶å€™ æŒ‰é’®çš„æ ‡ç­¾å¿…è¦æ”¾åœ¨inputçš„åé¢ï¼›å¦åˆ™ä¼šå¤±æ•ˆ  radioå¿…é¡»æœ‰ä¸€ä¸ªå…±åŒçš„name
 
-°²×¿»úÏÂÈô×ÖÌåÎª´ÖÌå »áµ¼ÖÂemoji±íÇéÎŞ·¨ÏÔÊ¾£»
+å®‰å“æœºä¸‹è‹¥å­—ä½“ä¸ºç²—ä½“ ä¼šå¯¼è‡´emojiè¡¨æƒ…æ— æ³•æ˜¾ç¤ºï¼›
 
-£¨var snack = 'Meow Mix';
+ï¼ˆvar snack = 'Meow Mix';
 
 function getFood(food) {
     if (food) {
@@ -61,15 +61,15 @@ function getFood(food) {
     return snack;
 }
 
-getFood(false); // undefined ×÷ÓÃÓòµÄÒ»¸ö¿Ó ¾­³£´í£©
+getFood(false); // undefined ä½œç”¨åŸŸçš„ä¸€ä¸ªå‘ ç»å¸¸é”™ï¼‰
 
--webkit-overflow-scrolling:touch; ÈÃ¹ö¶¯¾ßÓĞ¹ßĞÔ£»
+-webkit-overflow-scrolling:touch; è®©æ»šåŠ¨å…·æœ‰æƒ¯æ€§ï¼›
 
-È¥³ı¹ö¶¯Ìõ£º ::-webkit-scrollbar{
-	display: none;
+å»é™¤æ»šåŠ¨æ¡ï¼š ::-webkit-scrollbar{
+ display: none;
 }
 
-µ¹Ó° .daoying {
+å€’å½± .daoying {
     -webkit-box-reflect: below 0px
     -webkit-gradient(linear,
     left top,left bottom,
@@ -81,71 +81,7 @@ getFood(false); // undefined ×÷ÓÃÓòµÄÒ»¸ö¿Ó ¾­³£´í£©
     color: #dbd6d4;
 }
 
--webkit-tap-highlight-color:rgba(255,0,0,0);µã»÷ÆÁÄ»²»»áÉÁ
-
-word-break:break-all ºÍ word-wrap:break-word¶¼ÊÇÈÃÎÄ×Ö×Ô¶¯»»ĞĞ Çø±ğÔÚÓÚµ¥´ÊÊÇ·ñ»áÏÔÊ¾ÔÚÍ¬Ò»ĞĞ
-
-display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-µÚ¼¸ĞĞºóÃæ¸úÊ¡ÂÔºÅ ¸ÃÔªËØ²»ÄÜ¼ÓÉÏÏÂpaddingºÍ¸ß¶È£»
-
-letter-spacingÌí¼Ó×ÖÄ¸Ö®¼äµÄ¿Õ°×£¬¶øword-spacingÌí¼ÓÃ¿¸öµ¥´ÊÖ®¼äµÄ¿Õ°×¡£Çë´ó¼Ò×¢Òâ£¬word-spacing¶ÔÖĞÎÄÎŞĞ§¡£
-
-Êı×éÀïÃæÇó×î´óÖµµÄ·½·¨ Math.max.apply(null[Math],arr2);
-
-Array(n).fill().map(); ¿ìËÙ´´½¨Ò»¸öÊı×é        Àı×Ó£ºArray(n).fill().map((_,i) => i+1); [1,2,3,4,5]
-
-.outer:after {clear:both;content:'.';display:block;width: 0;height: 0;visibility:hidden;}  Çå³ş¸¡¶¯
-div:after, div:before{display: table; content:''}   div:after {clear: both;}
-
-Í¨³£ÓÃµÄÁ½¸öÄ£¿é·½·¨£º
-1¡¢commonJs  
-function myModule(){
-    this.hello = function(){
-	return 'hello';
-    }
-    
-    this.goodbye = function(){
-        return 'goodbye!';
-    }
-}
-
-module.exports = myModule;
-
-2¡¢
-    
+-webkit-tap-highlight-color:
 
 
-
-
-
-
-·ÀÖ¹iosµã»÷Á½´ÎÒ³ÃæÏòÉÏÒÆ¶¯µÄbug
-(function(){
-        var agent = navigator.userAgent.toLowerCase();        //¼ì²âÊÇ·ñÊÇios
-        var iLastTouch = null;                                //»º´æÉÏÒ»´ÎtapµÄÊ±¼ä
-        if (agent.indexOf('iphone') >= 0 || agent.indexOf('ipad') >= 0){
-            document.body.addEventListener('touchend', function(event){
-                var iNow = new Date()
-                    .getTime();
-                iLastTouch = iLastTouch || iNow + 1 /** µÚÒ»´ÎÊ±½«iLastTouchÉèÎªµ±Ç°Ê±¼ä+1 */ ;
-                var delta = iNow - iLastTouch;
-                if (delta < 500 && delta > 0)
-                {
-                    event.preventDefault();
-                    return false;
-                }
-                iLastTouch = iNow;
-            }, false);
-        }
-
-        })();
-
-
-
-typeof ºÍ instanceof ÕâÁ½¸ö¹¦ÄÜ¾ÍÊÇÍêÈ«²»Ò»ÑùµÄÔËËã·û¡£typeof ÊÇÎªÁË¼ì²éÊı¾İÀàĞÍ£¬instanceofÊÇÎªÁË¿´Ò»¸ö±äÁ¿ÊÇ·ñÊÇÄ³¸ö¶ÔÏóµÄÊµÀı¡£
-
-cssÊµÏÖÊ××ÖÏÂ³Á ÀûÓÃ£º£ºfirst-letter  ºÍ initial-letter: 3 3 (½ÓÊÜÁ½¸ö²ÎÊı£¬1¡¢ĞĞ¸ß 2¡¢³Á¶È  Ä¿Ç°»¹²»Ö§³Ö ¿ÉÓÃÏÂÃæµÄ½µµÍ´úÌæ
-font-size: 60px;color: hsl(350, 50%, 50%);float: left;line-height: .7;margin: 17px 2px 0 0;
+Object.prototype.toString.call(array).slice(8, -1) ï¼ï¼[object Array] åˆ¤æ–­ç±»å‹ç”¨çš„ 
